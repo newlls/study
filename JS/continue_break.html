@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        for(var i=0; i<10; i++){
+            if(i == 5){
+                break;//结束整个循环
+
+            }
+            console.log(i);//输出结果为0 1 2 3 4
+        }
+
+        for(var i=0; i<10; i++){
+            if(i == 5){
+
+                continue; //结束本次循环，进行下一循环
+            }
+            console.log(i);//输出结果为0 1 2 3 4 6 7 8 9
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .container{
+            width: 650px;
+            text-align: center;
+            border: 1px solid #ccccca;
+            margin: 20px auto;
+            position: relative;
+        }
+        .top-img img{
+            /*position: absolute;*/
+            width: 350px;
+            margin: 30px ;
+
+        }
+        .clear-fix::after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+        .bottom-img{
+            text-align: center;
+            border:1px solid #ccccca;
+            /*position: absolute;*/
+        }
+       .bottom-img ul li{
+            list-style: none;
+            float: left;
+            border-right: 1px solid #cccccc;
+    }
+    .bottom-img ul li img{
+        height: 100px;
+        width: 100px;
+        margin: 30px;
+
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-img">
+            <img src="../image/slide5.jpg">
+        </div>
+        <div class="bottom-img ">
+            <ul class="clear-fix">
+                <li><img src="../image/slide5.jpg"></li>
+                <li><img src="../image/slide3.jpg"></li>
+                <li><img src="../image/slide2.jpg"></li>
+                <li><img src="../image/slide1.jpg"></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

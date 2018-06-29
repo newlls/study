@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font: 12px/1.5 tahoma,arial,"\5b8b\4f53";
+    -webkit-font-smoothing: antialiased;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.wrapper{
+    width: 1230px;
+    margin: 0 auto;
+}
+/*nav开始*/
+    .nav{
+        background: #cccccc;
+        height:33px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .nav-box,.nav-menu{
+        height:32px;
+        line-height: 32px;
+        color: #999999;
+    }
+    .nav-login a{
+        color: #999999;
+        padding:0 10px 0 10px;
+    }
+    .nav-login .login-btn{
+        padding-left: 20px;
+    }
+    .nav-login a,.nav-login span{
+        float: left;
+    }
+    .nav-login a:hover{
+        color:#ff0036;
+    }
+    .nav-menu{
+        float: right;
+    }
+    .nav-menu>li{
+        float: left;
+    }
+    .nav-link{
+        color:#999;
+        padding:0 14px 0 10px;
+        display: block;
+    }
+    .sn-menu{
+        position: relative;
+    }
+    .sn-menu::after{
+        content:'';
+        height: 0;
+        width: 0;
+        border-width: 3px;
+        border-style: solid;
+        border-color: #999999 transparent transparent transparent;
+        position: absolute;
+        right: 6px;
+        top:16px;
+        transition: all 0.1s linear;
+        transform-origin: 3px 1.5px;
+    }
+    .sn-menu:hover::after{
+        transform: rotate(180deg);
+    }
+    .sn-menu a:hover{
+        text-decoration: underline;
+        color:#ff0036;
+    }
+    .sn-menu:hover{
+       background: #ffffff;
+        height: 33px;
+    }
+    .sn-menu:hover .sub-sn-menu{
+        display: block;
+    }
+    .sn-menu:hover .menu-hd{
+        display: block;
+    }
+    .sub-sn-menu,.menu-hd{
+        background: #fff;
+        border-bottom: 1px solid #eeeeee;
+        border-top:none;
+        padding:10px 8px;
+        left:-1px;
+        top:33px;
+        width: 74px;
+        position: absolute;
+        display: none;
+    }
+    .sub-menu-item,.menu-hd-item{
+        line-height: 18px;
+        height: 18px;
+    }
+    .sub-menu-item a{
+        color: #999999;
+    }
+    .menu-hd-item a{
+        color: #999999;
+    }
+    .nav-icon{
+        color: #ff0036;
+        font: 14px;
+    }
+/*nav结束*/

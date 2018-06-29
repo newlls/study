@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            display: none;
+            position: absolute;
+        }
+        li{
+            border:1px solid #9d9d9d;
+            width:120px;
+            text-align: center;
+            height: 35px;
+            line-height: 35px;
+        }
+        li:hover{
+            background: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <ul id="ul1">
+        <li >设置待办</li>
+        <li >设置未读</li>
+        <li >设置已读</li>
+        <li >删除右键</li>
+    </ul>
+
+    <script>
+        var oUl=document.getElementById('ul1');
+            document.oncontextmenu=function (e) {
+            oUl.style.display="block";
+            oUl.style.left=e.clientX+"px";//获取坐标，需要定位
+            oUl.style.top=e.clientY+"px";
+            return false;//阻止浏览器默认行为，写在最后
+        };
+        var aLi=document.getElementsByTagName('li');
+            for (i=0;i<aLi.length;i++){
+                aLi[i].index=i;
+
+                aLi[i].onclick=function () {
+                    console.log(this.index);//输出索引
+                   // console.log(this.innerHTML);//输出元素
+                    //console.log(this);
+                    //console.log(aLi[i].innerHTML);//报错
+                }
+
+            }
+
+    </script>
+</body>
+</html>

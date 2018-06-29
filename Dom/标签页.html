@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       *{
+            margin: 0;
+        }
+
+        .container{
+            border: 1px solid #000;
+            width: 500px;
+            margin-left: 100px;
+        }
+        .top-nav{
+            background-color: #000;
+        }
+        .top-nav ul{
+            padding: 0;
+        }
+        .top-nav li{
+            color: #fff;
+            float: left;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 20px;
+            list-style: none;
+        }
+        .clear-fix::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .top-nav .active{
+            background-color: #ddd;
+            color: #333333;
+        }
+        .content ul{
+            display: none;
+        }
+        .content .active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="top-nav">
+        <ul class="nav-ul clear-fix">
+            <li class="active">第一课</li>
+            <li >第二课</li>
+            <li >第三课</li>
+        </ul>
+        </div>
+
+        <div class="content">
+            <div >
+                <ul class="active">
+                    <li>11111</li>
+                    <li>11111</li>
+                    <li>11111</li>
+                </ul>
+            </div>
+            <div>
+                <ul >
+                    <li>22222</li>
+                    <li>22222</li>
+                    <li>22222</li>
+                    <li>22222</li>
+                    <li>22222</li>
+                    <li>22222</li>
+                </ul>
+            </div>
+            <div>
+                <ul >
+                    <li>33333</li>
+                    <li>33333</li>
+                    <li>33333</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+        var aUl=document.getElementsByClassName("nav-ul")[0];
+        var aLi=aUl.getElementsByTagName("li");
+        var oCon=document.getElementsByClassName("content")[0];
+        var aCon=oCon.getElementsByTagName("ul");
+        for (i=0;i<aLi.length;i++){
+            aLi[i].index=i;
+            aLi[i].onmouseover=function () {
+                for(var j=0;j<aLi.length;j++){
+                    aLi[j].className="";
+                    aCon[j].className="";
+                }
+                this.className="active";
+                aCon[this.index].className="active";
+
+            }
+        }
+    </script>
+</body>
+</html>

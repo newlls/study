@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器</title>
+    <style>
+        /*标签选择器*/
+        div{
+            background:gold;
+        }
+        /*id选择器 #id**/
+        #d1{
+            color:royalblue;
+            background: red;
+        }
+        /*3.class选择器 .class*/
+        .aa{
+            background:aqua;
+            color:seashell;
+        }
+        /*后代选择器（派生选择器）  aa bb*/
+        p span{
+            background:black;
+            color:red;
+        }
+        /*子代选择器 aa>bb*/
+        div span{
+            background:blueviolet;
+            color:transparent;
+        }
+        /*分组选择器 .aa,p*/
+        a,p{
+            background:red;
+        }
+        /*伪类选择器 :hover*/
+        a:hover{
+            color:magenta;
+        }
+        /*8.伪元素选择器 ::first-letter-->*/
+        #d3{
+            width: 100px;
+            height:100px;
+            background:darkcyan;
+        }
+        #d3::first-line{
+            color:rebeccapurple;
+        }
+        #d5::before{
+            content:'用';
+            color:red;
+        }
+        #d5::after{
+            content:'发';
+            color:firebrick;
+        }
+    </style>
+</head>
+<body>
+
+<!--css选择器：
+   1、标签选择器 div
+   2.id选择器 #id
+   3.class选择器 .class
+   4.后代选择器（派生选择器）  aa bb
+   5.子代选择器  aa>bb
+   6.分组选择器 .aa,p
+   7.伪类选择器 :hover
+   8.伪元素选择器 ::first-letter-->
+
+    <div>
+        呀呀呀
+    </div>
+
+    <div id="d1">
+        11111
+    </div>
+
+    <ul>
+        <li>222222</li>
+        <li class="aa">33333</li>
+        <li>444</li>
+        <li class="aa">5555</li>
+    </ul>
+
+    <div>
+        <span>后代选择器</span>
+    </div>
+
+    <div>
+        <p>
+            <span>子代选择器</span>
+        </p>
+    </div>
+
+    <a href="#">clike me</a>
+    <p>hhhhhhhhhhhhhhhhh</p>
+
+    <div id="d2">aaaa</div>
+    <div id="d3">33333 33333 333 sjs snshd sbsa</div>
+    <div id="d5">yusjhdhe</div>
+</body>
+</html>

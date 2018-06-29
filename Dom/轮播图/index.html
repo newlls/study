@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .container{
+            width: 490px;
+            height:170px;
+            margin:0 auto;
+            position: relative;
+            overflow:hidden;
+        }
+        .imag img{
+            /*z-index: 1;*/
+            display: none;
+        }
+        .imag .active{
+            /*z-index: 10;*/
+            display: block;
+        }
+        .btn li{
+            list-style: none;
+            float: left;
+            border:1px solid #cccccc;
+            border-radius: 50%;
+            width:25px;
+            height: 25px;
+            line-height: 25px;
+            font-size: 12px;
+            text-align: center;
+            background: #aa632c;
+            opacity:0.7;/*透明度*/
+
+        }
+        .left-btn{
+            bottom:10px;
+            left:10px;
+            position:absolute;
+        }
+        .right-btn{
+            bottom:10px;
+            right:10px;
+            position:absolute;
+        }
+        .right-btn .active{
+            background: #333333;
+            color:#e5e5e5;
+            opacity:1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="imag">
+            <img class="active" src="../image/01.jpg" alt="">
+            <img src="../image/02.jpg" alt="">
+            <img src="../image/03.jpg" alt="">
+            <img src="../image/04.jpg" alt="">
+            <img src="../image/05.jpg" alt="">
+        </div>
+        <div class="btn left-btn">
+            <ul>
+                <li>&lt</li>
+                <li>&gt</li>
+            </ul>
+        </div>
+        <div class="btn right-btn">
+            <ul>
+                <li class="active">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var aR=document.getElementsByClassName('right-btn')[0];
+        var aRli=aR.getElementsByTagName('li');
+        var aL=document.getElementsByClassName('left-btn')[0];
+        var aLi=aL.getElementsByTagName('li');
+        var aIm=document.getElementsByTagName('img');
+        var aCon=document.getElementsByClassName('container')[0];
+        var timer;
+        var nowIndext=0;
+
+        function change(index) {
+            nowIndext=index;
+            for(var i=0;i<aIm.length;i++){
+                aIm[i].className="";
+                aRli[i].className="";
+            }aIm[index].className="active";
+            aRli[index].className="active";
+        }
+
+        for(var j=0;j<aRli.length;j++){
+            aRli[j].index=j;
+            aRli[j].onmouseover=function () {
+                change(this.index);
+            }
+        }
+        //定时函数
+        function play() {
+            timer=setInterval(function () {
+                if(nowIndext>=4){
+                    nowIndext=0;
+                }else {
+                    nowIndext++;
+                }change(nowIndext);
+            },1000)
+        }
+
+        play();
+        //点击上下张
+        aLi[0].onclick=function () {
+            nowIndext--;
+            if(nowIndext<0){
+                nowIndext=4;
+            }change(nowIndext);
+        };
+        aLi[1].onclick=function () {
+            nowIndext++;
+            if(nowIndext>4){
+                nowIndext=0;
+            }change(nowIndext);
+        };
+
+        //鼠标划入图片时，停止滚动
+        aCon.onmouseover=function () {
+            clearInterval(timer);
+        };
+        //鼠标离开时，恢复滚动
+        aCon.onmouseout=function () {
+          play();
+        };
+
+
+
+
+        /*for(var i=0;i<aRli.length;i++){
+            aRli[i].index=i;
+            aRli[i].onmouseover=function () {
+                for(var j=0;j<aRli.length;j++){
+                    aRli[j].className="";
+                    aIm[j].className="";
+                }this.className="active";
+                aIm[this.index].className="active";
+            }
+        }*/
+    </script>
+</body>
+</html>

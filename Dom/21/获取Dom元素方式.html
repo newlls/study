@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="div1">jfjjjdf</div>
+    <div>jsk</div>
+    <div>hjshhhf</div>
+
+    <ul id="ul1">
+        <li class="aa bb">001</li>
+        <li>002</li>
+        <li class="aa">003</li>
+        <li>004</li>
+        <li>005</li>
+    </ul>
+
+    <ul>
+        <li class="aa">aaa</li>
+        <li>bbb</li>
+        <li class="aa">ccc</li>
+        <li>ddd</li>
+        <li>eee</li>
+    </ul>
+    <script>
+        //通过id获取元素
+        /*var oDiv1=document.getElementById('div1');
+        console.log(oDiv1);*/
+
+        //类数组,没有数组的方法
+        /*var aDiv1=document.getElementsByTagName('div');
+        console.log(aDiv1);//遍历
+        for(var i=1;i<aDiv1.length;i++){
+            aDiv1[i].onclick=function () {
+                console.log("1111");
+            }
+        }
+*/
+
+        //var aLi=document.getElementsByTagName('li');//取到所有的li元素
+       /* var aLi=document.getElementsByClassName('aa');//IE6不支持
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].style.background='red';//设置样式元素.style.属性
+        }*/
+
+
+        //封装函数
+        /*function getEleByClass(cName) {
+            var result=[];
+            var aEle=document.getElementsByTagName('*');
+            for(var i=0;i<aEle.length;i++){
+                if(aEle[i].className==cName){
+                    result.push(aEle[i]);
+                }
+            }return result;
+        }
+        var aA=getEleByClass('aa');
+        console.log(aA)
+        for (var i=0;i<aA.length;i++){
+            aA[i].style.background='red';
+        }*/
+
+
+        //"aa bb==aa"
+        /*function getEleByClass(cName) {
+            var result=[];
+            var aEle=document.getElementsByTagName('*');
+            for(i=0;i<aEle.length;i++){
+                if(aEle[i].className.indexOf(cName)!=-1){
+                    result.push(aEle[i]);
+                }
+            }return result;
+        }
+        var aA=getEleByClass('aa');
+        console.log(aA);
+        for (var i=0;i<aA.length;i++){
+            aA[i].style.background='red';
+        }*/
+
+
+        /*function getEleByClass(cName) {
+            var result=[];
+            var aEle=document.getElementsByTagName('*');
+            for(i=0;i<aEle.length;i++){
+                var str=aEle[i].className;
+                var arr=str.split(' ');
+                for(var j=0;j<arr.length;j++){
+                    if(arr[j]==cName){
+                        result.push(aEle[i]);
+                    }
+                }
+            }return result;
+        }
+        var aA=getEleByClass('aa');
+        console.log(aA);
+        for (var i=0;i<aA.length;i++){
+            aA[i].style.background='red';
+        }
+*/
+
+        function getEleByClass(cName,obj) {
+            var result=[];
+            /*if(!obj){
+                obj=document;
+            }*/
+
+            obj=obj||document;
+            var aEle=obj.getElementsByTagName('*');
+            for(i=0;i<aEle.length;i++){
+                var str=aEle[i].className;
+                var arr=str.split(' ');
+                for(var j=0;j<arr.length;j++){
+                    if(arr[j]==cName){
+                        result.push(aEle[i]);
+                    }
+                }
+            }return result;
+        }
+        var oUl = document.getElementById('ul1');
+        var aA = getEleByClass('aa',oUl);//className  从oUl下找
+            console.log(aA);
+        for(var i=0; i<aA.length; i++){
+            aA[i].style.background = 'red';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 490px;
+            height: 170px;
+            margin: 20px auto;
+            position:relative;
+            overflow: hidden;
+        }
+        .img-box{
+            width: 2940px;
+            position: absolute;
+        }
+        .img-box img{
+            float: left;
+        }
+        .clear-fix::after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+        .btn{
+            position: absolute;
+        }
+        .btn ul li{
+            float: left;
+            border: 1px solid;
+            border-radius:50%;
+            height: 25px;
+            width: 25px;
+            text-align: center;
+            background: #aa632c;
+            margin-right: 5px;
+        }
+        .lbtn{
+            bottom: 10px;
+            left: 10px;
+        }
+        .rbtn{
+            bottom: 10px;
+            right: 10px;
+        }
+        .rbtn .active{
+            background: #9d9d9d;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="img-box clear-fix">
+            <img class="active" src="../image/01.jpg" alt="">
+            <img src="../image/02.jpg" alt="">
+            <img src="../image/03.jpg" alt="">
+            <img src="../image/04.jpg" alt="">
+            <img src="../image/05.jpg" alt="">
+        </div>
+        <div class="btn lbtn">
+            <ul>
+                <li>&lt</li>
+                <li>&gt</li>
+            </ul>
+        </div>
+        <div class="btn rbtn">
+            <ul>
+                <li class="active">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var aLbtn=document.getElementsByClassName("lbtn")[0];
+        var aLi=aLbtn.getElementsByTagName('li');
+        var aRbtn=document.getElementsByClassName("rbtn")[0];
+        var aRli=aRbtn.getElementsByTagName('li');
+        var oImg=document.getElementsByClassName('img-box')[0];
+        var oBox=document.getElementsByClassName("container")[0];
+        var nowindex=0;
+        var timer;
+        var isRun = true;
+        var isTimer = true;
+
+        for(var i=0;i<aRli.length;i++){
+            aRli[i].index=i;
+            aRli[i].onclick=function () {
+                if(isRun){
+                    changeImg(this.index);
+                }
+            }
+        }
+
+        //向左移动按钮
+        aLi[0].onclick = function(){
+            if(isRun){
+                changeImg(nowindex-1);
+            }
+        };
+        //向右移动按钮
+        aLi[1].onclick = function(){
+            if(isRun){
+                changeImg(nowindex+1);
+            }
+        };
+
+        //移入停止动画
+        oBox.onmouseover = function(){
+            isTimer = false;
+        }
+        //移出继续动画
+        oBox.onmouseout = function(){
+            isTimer = true;
+        }
+
+        //定时切换图片
+        setInterval(function(){
+            if(isRun && isTimer){
+                changeImg(nowindex+1);
+            }
+        },1000);
+
+        //图片切换
+        function changeImg(index) {
+            isRun=false;
+            var direction;
+            if(index>nowindex){
+                direction=-1
+            }else if(index<nowindex){
+                direction=1;
+            }
+
+            //判断边界
+            if(index==-1){
+                index=4;
+                direction=-1;
+            }else if(index==5){
+                index=0;
+                direction=1;
+            }
+
+            nowindex=index;
+            timer=setInterval(function () {
+                oImg.style.left = oImg.offsetLeft+ direction*10 +"px";
+                if(index*-490==oImg.offsetLeft){
+                    clearInterval(timer);
+                    isRun=true;
+                }
+            },16);
+
+            //切换按钮选中状态
+            for(var i=0;i<aRli.length;i++){
+                aRli[i].className = "";
+            }
+            aRli[nowindex].className = "active";
+
+
+        }
+    </script>
+</body>
+</html>

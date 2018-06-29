@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            border: 1px solid #333333;
+            margin: 0 auto;
+            width: 200px;
+            height: 170px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>100</h1>
+        <button>开始</button>
+    </div>
+    <script>
+        var aH1=document.getElementsByTagName('h1')[0];
+        var aBtn=document.getElementsByTagName('button')[0];
+        var k=1;
+        var timer;
+        var num=100;
+        function change() {
+            aH1.innerHTML=num;
+            num--;
+        }
+        aBtn.onclick=function () {
+            if(k==1){
+               timer= setInterval(change,1000);
+                this.innerHTML="暂停";
+            }else {
+                clearInterval(timer);
+                this.innerHTML="开始";
+            }
+            k*=-1;
+        }
+    </script>
+</body>
+</html>

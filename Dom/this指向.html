@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn"></button>
+    <script>
+        /*var a="hello";
+        function foo() {
+            var a="world";
+           console.log(this.a);//全局作用域函数，this指向window，所以输出hello
+        }
+        foo();
+        console.log(this.a);//全局变量，指向window，输出hello*/
+
+        /*var name="xiaohong";
+        var obj={
+            name:"xiaoming",
+            show:function () {
+                console.log(this.name);
+            }
+        };
+        obj.show();//输出xiaoming，对象obj在调用*/
+
+        var index="1";
+        var oBtn=document.getElementById('btn');
+        oBtn.index="2";
+        oBtn.onclick=function () {
+            console.log(this.index);//输出2
+        }
+
+        /*var index="1";
+        var oBtn=document.getElementById('btn');
+        oBtn.index="2";
+        oBtn.onclick=function () {
+            setInterval(function () {
+                console.log(this.index);//输出1，此时对象oBtn与此方法不在一个作用域，this指向window
+            },100);
+
+        }*/
+
+    </script>
+</body>
+</html>

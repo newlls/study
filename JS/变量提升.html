@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*alert(i);
+        var i=5;//输出undefined，只是把变量i提上去，i的值没有提
+        */
+
+        /*f();
+        function f() {
+            alert("5");
+        }//输出5，函数提升*/
+
+
+
+        alert(a);
+        a();
+        var a=3;
+        function a() {
+            alert(10);
+        }
+        alert(a);
+        a=6;
+        a();
+
+
+        var a=function () {
+            document.write("2");
+        }
+        document.write(a);//输出函数体
+
+    </script>
+</body>
+</html>

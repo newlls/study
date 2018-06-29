@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 120px;
+            height: 35px;
+            background: #aa632c;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+    var aDiv=document.getElementsByTagName('div');
+    var timer1,timer2;
+    for(var i=0;i<aDiv.length;i++){
+        aDiv[i].onmouseover=function () {
+            clearInterval(this.timer2);
+            var that=this;
+            this.timer1=setInterval(function () {
+                if(that.offsetWidth>600){
+                    clearInterval(that.timer1);
+                }else {
+                    that.style.width=that.offsetWidth+10+"px";
+                }
+            },16)
+        }
+    }
+
+
+    for (var j=0;j<aDiv.length;j++){
+        aDiv[j].onmouseout=function () {
+            clearInterval(this.timer1);
+            var that=this;
+            this.timer2=setInterval(function () {
+                if(that.offsetWidth<120){
+                    clearInterval(that.timer2);
+                }else {
+                    that.style.width=that.offsetWidth-10+"px";
+                }
+            },16)
+        }
+    }
+    </script>
+</body>
+</html>

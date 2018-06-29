@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>行级块级元素</title>
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            background: mediumaquamarine;
+            display:inline-block;
+        }
+        p{
+            width: 100px;
+            height:100px;
+            background:navy;
+        }
+        span{
+            display:block;
+         }
+        img{
+            width:100px;
+            height:100px;
+        }
+    </style>
+</head>
+<body>
+<!--
+    行级元素 水平分布 不能设置宽高 宽度由内容撑的 display: inline
+    块级元素 垂直分布 可以设置宽高  display: block;
+
+    行级块元素：水平分布 可以设置宽高  display: inline-block
+
+-->
+    <div>
+        行级块元素：水平分布 可以设置宽高 display: inline-block
+    </div>
+    <p>行级元素 水平分布 不能设置宽高 宽度由内容撑的 display: inline</p>
+    <span>块级元素 垂直分布 可以设置宽高  display: block</span>
+    <img src="11.JPG" alt=""/>
+</body>
+</html>

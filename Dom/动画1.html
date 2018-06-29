@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 120px;
+            height: 35px;
+            background: #aa632c;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+       var oDiv=document.getElementById('div1');
+        oDiv.onclick=function () {
+         var thisW=this.offsetWidth;
+         this.style.width=100+thisW+"px";
+        }
+    </script>
+</body>
+</html>

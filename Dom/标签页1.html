@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .container{
+           border: 1px solid #000000;
+            width: 300px;
+            margin:0 auto;
+        }
+        .top-nav{
+            background: #000000;
+        }
+        .top-nav span{
+            margin-right: 10px;
+            color:#e5e5e5;
+        }
+        .top-nav .active{
+            background: #cccccc;
+            color:#000000;
+        }
+        .content ul{
+           display: none;
+        }
+        .content .active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-nav">
+            <span class="active">第一课</span>
+            <span>第二课</span>
+            <span>第三课</span>
+        </div>
+        <div class="content">
+            <div>
+                <ul class="active">
+                    <li>111111111111111</li>
+                    <li>11111111</li>
+                    <li>1111111111111</li>
+                </ul>
+            </div>
+
+            <div>
+                <ul>
+                    <li>222222222222</li>
+                    <li>222222222222</li>
+                    <li>222222222222</li>
+                    <li>222222222222</li>
+                    <li>222222222222</li>
+                </ul>
+            </div>
+
+            <div>
+                <ul>
+                    <li>33333333333333333333</li>
+                    <li>3333</li>
+                    <li>3333333333333</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        var aTop=document.getElementsByClassName('top-nav')[0];
+        var aSpan=aTop.getElementsByTagName('span');
+        var aCon=document.getElementsByClassName('content')[0];
+        var aUl=aCon.getElementsByTagName('ul');
+        for(var i=0;i<aSpan.length;i++){
+            aSpan[i].index=i;
+            aSpan[i].onmouseover=function () {
+                for(var j=0;j<aSpan.length;j++){
+                    aSpan[j].className="";
+                    aUl[j].className="";
+                }this.className="active";
+                aUl[this.index].className="active";
+            }
+        }
+
+    </script>
+
+</body>
+</html>

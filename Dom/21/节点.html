@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="div1">
+        kkkkkk
+    </div>
+    <script>
+        /* 常用三种节点       nodeType
+         *元素节点             1
+         *属性节点             2
+         *文本节点             3
+         * */
+        var oDiv=document.getElementById('div1');
+        var oText=oDiv.firstChild;
+
+        console.log(oDiv.nodeType);     //1
+        console.log(oText.nodeType);    //3
+
+        console.log(oDiv.nodeName);     //DIV
+        console.log(oText.nodeName);    //#text
+
+        console.log(oDiv.nodeValue);     //null
+        console.log(oText.nodeValue);    //     kkkkkk
+
+
+
+    </script>
+</body>
+</html>

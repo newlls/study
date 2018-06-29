@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #small-box{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            float: left;
+        }
+        #drag{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top:0;
+            background: rgba(255,255,255,0.5);
+            display: none;
+        }
+        #big-box{
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            float: left;
+            position: relative;
+            display: none;
+        }
+        #big-box img{
+            left: 0;
+            top:0;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="small-box">
+        <img src="1.jpg" alt="">
+        <div id="drag"></div>
+    </div>
+    <div id="big-box">
+        <img id="b-img" src="2.jpg" alt="">
+    </div>
+
+    <script>
+        var oSmall=document.getElementById('small-box');
+        var oBig=document.getElementById('big-box');
+        var oDrag=document.getElementById('drag');
+        var oImg=document.getElementById('b-img');
+
+        oSmall.onmouseover=function () {
+            oDrag.style.display="block";
+            oBig.style.display="block";
+        };
+
+        oSmall.onmousemove=function (e) {
+            var left=e.clientX-oDrag.offsetWidth/2;
+            var top=e.clientY-oDrag.offsetWidth/2;
+            if(left<=0){
+                left=0;
+            }
+            if(top<=0){
+                top=0;
+            }
+
+            var xMax=oSmall.offsetWidth-oDrag.offsetWidth;
+            var yMax=oSmall.offsetHeight-oDrag.offsetHeight;
+            if(left>xMax){
+                left=xMax;
+            }
+            if(top>yMax){
+                top=yMax;
+            }
+
+            oDrag.style.left=left+"px";
+            oDrag.style.top=top+"px";
+
+            var xScale=left/xMax;
+            var yScale=top/yMax;
+            var xBigMax=oImg.offsetWidth-oBig.offsetWidth;
+            var yBigMax=oImg.offsetHeight-oBig.offsetHeight;
+            var bigLeft=xScale*xBigMax;
+            var bigTop=yScale*yBigMax;
+            oImg.style.left=-bigLeft+"px";
+            oImg.style.top=-bigTop+"px";
+        };
+
+        oSmall.onmouseout=function () {
+            oDrag.style.display="none";
+            oBig.style.display="none";
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="div1">
+        div1111
+        <span id="spa">2222</span>
+    </div>
+    <div id="div2">
+        div22222
+    </div>
+    <button id="btn">click</button>
+
+    <script>
+        var oDiv1=document.getElementById('div1');
+        var oDiv2=document.getElementById('div2');
+        var oBtn=document.getElementById('btn');
+        var oSpan=document.getElementById('spa');
+        var oH1=document.createElement('h1');
+
+        var oSpan1=document.createElement('span');//创建一个新节点
+        oSpan.innerHTML="span11111";
+        oDiv1.appendChild(oSpan1);//向节点的子节点列表的结尾添加新的子节点
+
+        var oDiv11=oDiv1.cloneNode(true);//复制节点。 若不写true，则只是克隆了div1元素，没有内容
+        oDiv2.appendChild(oDiv11);
+
+        oBtn.onclick=function () {
+
+            oH1.innerHTML="$$$$$$$$$$$$";
+           // oDiv1.removeChild(oSpan);//移除oDiv1的oSpan
+            //oDiv1.insertBefore(oH1,oSpan);//在元素oSpan前面添加元素oH1
+
+            oDiv1.replaceChild(oH1,oSpan);//用oH1代替oDiv1中的oSpan
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #container{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #cccccc;
+            background: #999999;
+            margin: 20px auto;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div id ="container">
+        <h1>100</h1>
+        <button id="btn">开始</button>
+    </div>
+    <script>
+        /*方法一*/
+        /*var oBtn=document.getElementById('btn');
+        var aH1=document.getElementsByTagName('h1')[0];
+        var timer;
+        oBtn.onclick=function () {
+            if(oBtn.innerHTML=="开始"){
+                oBtn.innerHTML="暂停";
+                timer=setInterval(function () {
+                    aH1.innerHTML--;
+                },1000)
+            }else if(oBtn.innerHTML=='暂停'){
+                oBtn.innerHTML="开始";
+                clearInterval(timer);
+            }
+        };*/
+
+        /*方法二*/
+        var aH1=document.getElementsByTagName('h1')[0];
+        var oBtn=document.getElementById('btn');
+        var k=1;
+        var num=100;
+        var timer;
+        function changenum() {
+           aH1.innerHTML=num;
+           num--;
+        }
+
+        oBtn.onclick=function () {
+            if(k==1){
+                timer=setInterval(changenum,1000);
+                this.innerHTML="暂停";
+            }else {
+                clearInterval(timer);
+                this.innerHTML="开始";
+            }k*=-1;
+        }
+    </script>
+</body>
+</html>

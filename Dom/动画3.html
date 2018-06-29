@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 120px;
+            height: 120px;
+            background: #aa632c;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">移动</button>
+    <div id="div1"></div>
+
+    <script>
+    var aBtn=document.getElementById('btn');
+    var aDiv=document.getElementById('div1');
+    var timer1;
+    aBtn.onclick=function () {
+        timer1=setInterval(function () {
+            if (aDiv.offsetLeft>800){
+                clearInterval(timer1);
+            }else {
+                aDiv.style.left=aDiv.offsetLeft+10+"px";
+            }
+
+        },16)
+    }
+    </script>
+</body>
+</html>
