@@ -1,0 +1,171 @@
+/* css reset start*/
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    font: 12px/1.5 tahoma,arial,"\5b8b\4f53";
+    -webkit-font-smoothing: antialiased;
+}
+ul li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+/* css reset end*/
+
+/* global css start*/
+.site-width{
+    width:1230px;
+    margin: 0 auto;
+}
+/* global css end*/
+
+/*site-nav start*/
+.site-nav{
+    background: #f2f2f2;
+    height: 32px;
+    line-height: 32px;
+    color: #999;
+}
+.site-width .sn-left {
+    float: left;
+}
+.sn-left a,.sn-left span{
+    color: #999;
+    padding: 0 10px;
+}
+.sn-left a:hover{
+    color: #ff0036;
+}
+
+.site-width .sn-right{
+    float: right;
+}
+.site-width .sn-right .sn-separator{
+    border-left:1px solid #999;
+    height: 14px;
+    top:9px;
+    position: relative;
+    margin-left: 10px;
+    padding: 0;
+}
+.site-width .sn-right li{
+    float: left;
+    padding: 0 15px;
+    border-width: 0 1px;
+    border-color: #f2f2f2;
+    border-style: solid;
+    position: relative;
+}
+.sn-right .nav-icon{
+    color: #ff0036;
+    font-size: 14px;
+    margin: 5px;
+}
+.sn-right .drup-menu{
+    position: relative;
+}
+.drup-menu a{
+    color: #999;
+}
+.sn-right li:hover a{
+    color: #ff0036;
+}
+.sn-right .drup-menu:hover{
+    background: #ffffff;
+    text-decoration: underline;
+}
+.sn-right .sn-menu{
+    background: #fff;
+    border-style: solid;
+    border-color: #e5e5e5;
+    border-width: 0 1px 1px 1px;
+    width: 100px;
+    position: absolute;
+    left: -1px;
+    text-align: center;
+    display: none;
+}
+.sn-right .drup-menu:hover .sn-menu{
+    display: block;
+}
+.sn-right .sn-menu p:hover{
+    color: #FF0036;
+    cursor:pointer;
+    text-decoration: underline;
+}
+.drup-menu::after{
+    content:'';
+    height: 0;
+    width: 0;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #999999 transparent transparent transparent;
+    position: absolute;
+    right: 6px;
+    top:16px;
+    transition: all 0.2s linear;
+    transform-origin: 50% 25%;
+}
+.drup-menu:hover::after{
+    transform: rotate(180deg);
+}
+.sn-right .sn-mobile{
+    position: relative;
+}
+.sn-right .sn-mobile:hover{
+    cursor: pointer;
+}
+.sn-right .sn-box{
+    width: 130px;
+    height: 130px;
+    box-shadow: 0 0 5px #aaa;
+    position: absolute;
+    display: none;
+}
+.sn-right .sn-box .sn-rotate{
+    width: 25px;
+    height: 25px;
+    transform: rotate(45deg);
+    margin: 0 auto;
+    background: #ffffff;
+}
+.sn-right .sn-mobile:hover .sn-box{
+    display: block;
+}
+.sn-right .sn-seller-lazy{
+    width: 200px;
+    right: 0;
+    left: auto;
+    overflow: hidden;
+    position: absolute;
+    border-style: solid;
+    border-color: #e5e5e5;
+    border-width: 0 1px 1px 1px;
+    display: none;
+}
+.sn-right .sn-seller-lazy h3{
+    color: #666;
+    margin: 0;
+    padding-left: 8px;
+}
+.sn-right .sn-seller-lazy li a{
+    margin: 0 10px;
+    color: #666;
+}
+.sn-right .sn-seller-lazy p{
+    border-style: dotted;
+    border-color: #666;
+    border-width: 0.5px;
+    margin: 10px auto;
+}
+.sn-right .drup-menu:hover .sn-seller-lazy{
+    display: block;
+}
+.sn-right .sn-seller-lazy a:hover{
+    color: #FF0036;
+    text-decoration: underline;
+}
+/*site-nav end*/

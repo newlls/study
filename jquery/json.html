@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul id="text">
+
+    </ul>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        var thisUrl = "http://yapi.demo.qunar.com/mock/12057/tmall/listMenu";
+        var thishtml="";
+        $.ajax({
+            type:"get",
+            url:thisUrl,
+            data:"",
+            dataType: "json",
+            success:function (data) {
+                for(var i=0;i<data.listMenu.length;i++){
+                    for(var j=0;j<data.listMenu[i].length;j++){
+                        thishtml+="<li>"+data.listMenu[i][j]+"</li>";
+                    }
+                }
+                console.log(thishtml)
+                var oText=document.getElementById('text');
+                oText.innerHTML=thishtml;
+            }
+
+        });
+    </script>
+
+</body>
+</html>

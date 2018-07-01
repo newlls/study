@@ -1,0 +1,85 @@
+/*search start*/
+.logo{
+    width: 240px;
+    height: 130px;
+    float: left;
+}
+.search-box{
+    margin:38px 0 0 120px;
+    float: left;
+}
+.search{
+    width: 629px;
+    border-color: #FF0036;
+    border-width:2px;
+    border-style: solid;
+}
+/*.search .clear-fix{
+    clear: both;
+    content: "";
+    display: block;
+}*/
+.search form{
+    height: 36px;
+}
+.search-text{
+    width: 491px;
+    height: 36px;
+    border:none;
+    font-size: 18px;
+    outline: none;
+    float: left;
+}
+.search-submit{
+    height: 38px;
+    width: 137px;
+    background: #FF0036;
+    color: #ffffff;
+    border:none;
+    float: left;
+}
+.under-search{
+    margin-top:5px;
+    margin-left: -12px;
+}
+.under-search li{
+    float: left;
+    padding:0 12px;
+    position: relative;
+}
+.under-search li a{
+    color: #999;
+}
+.under-search li span{
+    background: #999;
+    width: 1px;
+    height: 15px;
+    top:6px;
+    right: 0;
+    position: absolute;
+}
+.under-search .under-search-hot a{
+    color: #FF0036;
+}
+/*search end*/
+
+/*menu start*/
+.search-wrap{
+    overflow: hidden;
+}
+.menu-box{
+    height: 35px;
+    border-bottom: 2px solid #FF0036;
+}
+.menu-list{
+    margin-left:200px;
+}
+.menu-list img{
+    width: 100px;
+    margin-top:-2px;
+}
+.menu-list li{
+    float: left;
+    margin-left: 30px;
+}
+/*menu end*/
