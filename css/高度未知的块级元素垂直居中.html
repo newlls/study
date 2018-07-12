@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*方法一：弹性盒模型*/
+        /*.outside{
+            width: 1200px;
+            height: 200px;
+            background: #333333;
+            display: flex;
+        }
+        .inner{
+            width: 500px;
+            height: 60px;
+            background: #aa632c;
+            margin: auto 0;
+        }*/
+
+        /*方法二： position:absolute + transform属性利用transform的translateY()方法*/
+        .outside{
+            width: 1200px;
+            height: 200px;
+            background: #333333;
+            position: relative;
+        }
+        .inner{
+            width: 500px;
+            height: 60px;
+            background: #aa632c;
+            position: absolute;
+            top:50%;/*相对祖先元素向下移动50% ,必须定位*/
+            transform: translateY(-50%); /*元素y轴移动自身的一半*/
+        }
+    </style>
+</head>
+<body>
+    <div class="outside">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*方法一*/
+        /*.outside{
+            height: 50px;
+            width: 1230px;
+            margin: 0 auto;
+            display: flex;!*弹性盒子*!
+            align-items:center;!*弹性盒子*!
+            background: #999;
+        }
+        .inner {
+            background: #aa632c;
+            height: 30px;
+            width: 200px;
+        }*/
+        /*方法二*/
+        .outside{
+            width: 1230px;
+            height: 50px;
+            margin: 0 auto;
+            background: #999;
+            position: relative;
+        }
+        .inner{
+            height: 30px;
+            width: 200px;
+            background: #aa632c;
+            position: absolute;
+            top:50%;/*元素相对其最近的position属性不为static的元素(祖先元素)移动50%，
+                    top、right、bottom 和 left 属性指定定位元素的位置。*/
+            margin-top:-15px; /*元素向上移动自身的50%，此时，正好垂直居中*/
+        }
+    </style>
+</head>
+<body>
+    <div class="outside">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>
