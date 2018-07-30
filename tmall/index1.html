@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/iconfont.css">
     <link rel="stylesheet" href="css/common1.css">
     <link rel="stylesheet" href="css/index1.css">
+<!--    <script type="text/javascript" src="js/index1.js"></script>-->
 </head>
 <body>
     <div class="site-nav">
@@ -137,6 +138,101 @@
                 <li><a href="#">天猫会员</a></li>
                 <li><a href="#">天猫会员</a></li>
             </ul>
+        </div>
+    </div>
+
+    <div>
+        <div class="slide">
+            <div class="slide-panner sp-1 active">
+                <div>
+                    <img src="https://img.alicdn.com/simba/img/TB1fN3WA7CWBuNjy0FaSutUlXXa.jpg" alt="">
+                </div>
+            </div>
+            <div class="slide-panner sp-2">
+                <div>
+                    <img src="image/slide4.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="slide-panner sp-3">
+                <div>
+                    <img src="https://img.alicdn.com/simba/img/TB114X1gBjTBKNjSZFuSuv0HFXa.jpg" alt="">
+                </div>
+            </div>
+            <div class="slide-panner sp-4">
+                <div>
+                    <img src="image/slide1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var aSp=document.querySelectorAll('.slide-panner');
+        var index=0;
+        setInterval(function () {
+            aSp[index].classList.remove("active");
+            if(index==3){
+                index=-1;
+            }
+            aSp[++index].classList.add("active");
+        },1000);
+    </script>
+
+    <div class="category-type">
+        <div class="site-width">
+            <div class="category-box">
+                <h3 class="category=title">商品分类</h3>
+                <ul>
+                    <li class="category-item">
+                        <a href="#"><i class="iconfont icon-liebiao nav-icon"></i>女装、</a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#"><i class="iconfont icon-shouji nav-icon"></i>男装 /运动户外</a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#"><i class="iconfont icon-shouji nav-icon"></i>女鞋 /男鞋 /箱包</a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#"><i class="iconfont icon-shouji nav-icon"></i>女鞋 /男鞋 /箱包</a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#"><i class="iconfont icon-shouji nav-icon"></i>女鞋 /男鞋 /箱包</a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#"><i class="iconfont icon-shouji nav-icon"></i>女鞋 /男鞋 /箱包</a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#"><i class="iconfont icon-shouji nav-icon"></i>女鞋 /男鞋 /箱包</a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#"><i class="iconfont icon-shouji nav-icon"></i>女鞋 /男鞋 /箱包</a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#"><i class="iconfont icon-shouji nav-icon"></i>女鞋 /男鞋 /箱包</a>
+                    </li><li class="category-item">
+                    <a href="#"><i class="iconfont icon-shouji nav-icon"></i>女鞋 /男鞋 /箱包</a>
+                </li>
+                    <li class="category-item">
+                        <a href="#"><i class="iconfont icon-shouji nav-icon"></i>女鞋 /男鞋 /箱包</a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#"><i class="iconfont icon-shouji nav-icon"></i>女鞋 /男鞋 /箱包</a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#"><i class="iconfont icon-shouji nav-icon"></i>女鞋 /男鞋 /箱包</a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#"><i class="iconfont icon-shouji nav-icon"></i>女鞋 /男鞋 /箱包</a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#"><i class="iconfont icon-shouji nav-icon"></i>女鞋 /男鞋 /箱包</a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#"><i class="iconfont icon-shouji nav-icon"></i>女鞋 /男鞋 /箱包</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>
