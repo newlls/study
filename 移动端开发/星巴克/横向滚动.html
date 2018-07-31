@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 70%;
+            overflow: hidden;
+        }
+        .content{
+            white-space: nowrap;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            margin-bottom: -20px;
+            padding-bottom: 20px;
+        }
+        li{
+            list-style: none;
+            height: 100px;
+            width: 150px;
+            background: red;
+            margin-right: 10px;
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul class="content" data-text="123">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+        </ul>
+    </div>
+    <button id="prev">上一张</button>
+    <button id="next">下一张</button>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        var scrollbar=$('.content')[0];
+        $('#prev').on('click',function () {
+            run('right');
+        });
+        $('#next').on('click',function () {
+            run('left');
+        });
+        function run(dire) {
+            var scollW=dire=="left" ? scrollbar.scrollLeft+300:scrollbar.scrollLeft-300;
+            $('.content').animate({
+                scrollLeft:scollW
+            },500,function () {
+                showArrow();
+            })
+        }
+        function showArrow() {
+            $('#prev').add('#next').show();
+            if(scrollbar.scrollLeft<=0){
+                $('#prev').hide();
+            }
+            if(scrollbar.scrollLeft>=scrollbar.scrollWidth-scrollbar.clientWidth){
+                $('#next').hide();
+            }
+        }
+        $('.content').on('scroll',function () {
+            if($(this).data("timer")){
+                clearTimeout($(this).data("timer"))
+            }
+            $(this).data("timer",setTimeout(function () {
+               showArrow();
+            }),1000)
+        })
+    </script>
+</body>
+</html>

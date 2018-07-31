@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            padding: 0 200px;
+            min-width: 200px;
+        }
+        .center,.left,.right{
+            min-height: 200px;
+            float: left;
+            position: relative;
+        }
+        .center{
+            width: 100%;
+            background: #0000ff;
+        }
+        .left{
+            width: 200px;
+            background: red;
+            margin-left: -100%;
+            left: -200px;
+        }
+        .right{
+            width: 200px;
+            background: green;
+            margin-left: -200px;
+            right: -200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="center">center</div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            display: flex;
+            position: relative;
+        }
+        .center{
+            flex-shrink: 3;
+            width: 800px;
+            height: 200px;
+            float: left;
+            background: blue;
+
+        }
+        .left{
+            flex-shrink: 0;
+            float: left;
+            background: red;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+        }
+        .right{
+            flex-shrink: 0;
+            float: left;
+            width: 200px;
+            height: 200px;
+            background: cadetblue;
+            position: absolute;
+        }
+        .clear-fix::after{
+            clear: both;
+            display: block;
+            content: "";
+        }
+    </style>
+</head>
+<body>
+    <div class="box clear-fix">
+        <div class="center"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>

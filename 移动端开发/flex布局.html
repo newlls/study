@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container{
+            display: flex;
+            min-height: 200px;
+        }
+        .center{
+            background: blue;
+            flex-grow: 1;
+        }
+        .left{
+            background: red;
+            flex-basis: 200px;/*设置固定宽度*/
+            order:-1;/*对于order属性：定义项目的排列顺序，越小越靠前，默认为0。*/
+        }
+        .right{
+            background: green;
+            flex-basis: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="center">center</div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+</body>
+</html>
