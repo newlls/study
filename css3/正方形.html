@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        div{
+            width: 50%;
+            height: 0;
+            padding-bottom: 50%;
+        }
+        .div1{
+            background: blue;
+
+        }
+        .div2{
+            background: red;
+        }
+        .div3{
+            background: yellowgreen;
+        }
+
+    </style>
+</head>
+<body>
+        <div class="div1">
+            <div class="div2">
+                <div class="div3"></div>
+            </div>
+        </div>
+    <script>
+        var oDiv1=document.getElementsByClassName('div1')[0];
+        oDiv1.addEventListener("click",function () {
+            console.log('div1');
+        },false);
+        oDiv1.addEventListener("click",function (e) {
+            console.log('div1-1');
+            e.stopPropagation()
+        },false);/*ie不支持*/
+
+
+        oDiv1.attachEvent("onclick",function () {
+
+        });/*没有事件捕获，事件对象*/
+
+        oDiv1.attachEvent("onclick",function () {
+            window.event.cancelBubble=true;
+        },false);/*冒泡*/
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        /*  E：nth-child（n）
+            匹配父元素的第n个子元素E，假设该子元素不是E，则选择符无效。*/
+        div:nth-child(1){
+            color:red;/*无效，前后不对应  应把nth-child(1)改为nth-child(2)
+                        意为找父元素的div  div为第二个孩子*/
+        }
+
+        div:nth-child(2){
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>h1</h1>
+    <div>div2</div>
+    <span>spans3</span>
+
+</body>
+</html>

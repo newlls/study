@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body,html{
+            height: 100%;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            position: relative;
+            width: 500px;
+            height: 300px;
+            margin: auto;
+        }
+        .box img{
+            position: absolute;
+            width: 500px;
+            height: 300px;
+            box-shadow: 5px 5px 5px rgba(50,50,50,.5);
+           /* transition: all 1s ease-in;*/
+
+            /*transition: width 1s ease,height 1s ease;*/
+
+
+            transition-property: width;
+            transition-duration: 1s;
+
+
+        }
+
+       /* .pc1{
+            transform:rotate(30deg);
+        }
+        .pc2{
+            transform: rotate(-45deg);
+        }*/
+
+         img:nth-child(1){
+            transform: rotate(30deg);
+        }
+         img:nth-child(2){
+            transform: rotate(-45deg);
+        }
+        img:hover{
+            transform: rotate(0deg) scale(1.2);/*scale 放大  覆盖上面的transform:rotate*/
+            z-index: 50;
+            box-shadow: 10px 10px 15px rgba(50,50,50,.4);
+
+        }
+    </style>
+</head>
+<body>
+        <div class="box">
+            <img class="pc1" src="image/slide5.jpg" alt="">
+            <img class="pc2" src="image/slide5.jpg" alt="">
+        </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*p:last-child{
+            color: red;!*p不是最后的元素，即不匹配，所以无效*!
+        }*/
+
+        p:last-child(2){
+            color: red;/*因为倒数第1个p，其实是倒数第2个子元素。
+                        基于选择符从右到左解析，首先要找到第1个子元素，
+                        然后再去检查该子元素是否为p，如果不是p，则n递增，继续查找*/
+        }/**/
+
+
+        /*在不确定所找元素为第几个时，可用以下两种方法*/
+        p:last-of-type{
+            color:red;  /*找最后一个类型为p的元素  */
+        }
+     /*
+        P:nth-last-of-type(1){
+            color: red;
+        }*/
+        /*first与last类似*/
+
+
+        .demo span:first-of-type{
+            color: chartreuse;  /*结果span1和span2都会被命中，因为span1和span2分属不同的父元素，
+                                   并且都是其父元素的首个span元素，所以都会被命中*/
+        }
+        .demo span:last-of-type{
+            color:rebeccapurple;    /*结果span3和span4都会被命中，因为span3和span4分属不同的父元素，
+                                       并且都是其父元素的最后一个span元素，所以都会被命中*/
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>我是一个标题</h2>
+        <p>我是一个p1</p>
+        <p>我是一个p2</p>
+        <p>我是一个p3</p>
+        <div>1111</div>
+    </div>
+
+
+    <div class="demo">
+        <span>span1</span>
+        <p>
+            <span>span2</span>
+            <span>span3</span>
+        </p>
+        <span>span4</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        #box{
+            width: 202px;
+            height: 202px;
+            border: 1px dashed #666;
+           /* border-radius: 50%;*/
+            left: 50%;
+            top:50%;
+            margin-left: -101px;
+            margin-top:-101px;
+            position: absolute;
+        }
+        #box ul{
+            list-style: none;
+            position: relative;
+            height: 200px;
+            margin: 0;
+            padding: 0;
+            border: 1px solid #666;
+            border-radius: 50%;
+            margin-left: -2px;
+        }
+        #box ul li{
+            width: 2px;
+            height: 6px;
+            position: absolute;
+            background: #999;
+            left:50%;
+            top:0;
+            transform-origin: center 100px;/*以圆心为基准旋转*/
+        }
+        /*#box ul li:nth-of-type(1){
+            transform: rotate(0);
+        }
+        #box ul li:nth-of-type(2){
+            transform: rotate(6deg);
+        }
+        #box ul li:nth-of-type(3){
+            transform: rotate(12deg);
+        }
+        #box ul li:nth-of-type(4){
+            transform: rotate(18deg);
+        }
+        #box ul li:nth-of-type(5){
+            transform: rotate(24deg);
+        }
+        #box ul li:nth-of-type(6){
+            transform: rotate(30deg);
+        }
+        #box ul li:nth-of-type(7){
+            transform: rotate(36deg);
+        }*/
+        #box ul li:nth-of-type(5n+1){
+            height: 12px;
+        }
+        #box div{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transform-origin: bottom;
+        }
+        #hour{
+            width: 6px;
+            height: 40px;
+            background: #aa632c;
+            top:60px
+        }
+        #min{
+            width: 4px;
+            height: 60px;
+            background: blue;
+            top:40px;
+        }
+        #sec{
+            width: 2px;
+            height: 80px;
+            background: red;
+            top:20px;
+        }
+        #icon{
+            width: 15px;
+            height: 15px;
+            background: #666;
+            border-radius: 50%;
+            top:50%;
+            margin-top:-4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul id="list">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div id="hour"></div>
+        <div id="min"></div>
+        <div id="sec"></div>
+        <div id="icon"></div>
+    </div>
+    <script>
+        var oList=document.getElementById('list');
+        var oHour=document.getElementById('hour');
+        var oMin=document.getElementById('min');
+        var oSec=document.getElementById('sec');
+        var oLi="";
+        for(var i=0;i<60;i++){
+            oLi+="<li style='transform: rotate("+i*6+"deg)'></li>"
+        }
+       run();
+        oList.innerHTML=oLi;
+        function run() {
+            var timer=new Date();
+            var s=timer.getSeconds();
+            var m=timer.getMinutes()+s/60;
+            var h=timer.getHours()+m/60;
+            oSec.style.transform='rotate('+s*6+'deg)';
+            oMin.style.transform='rotate('+m*6+'deg)';
+            oHour.style.transform='rotate('+h*30+'deg)';
+
+        }
+       setInterval(run,1000);
+    </script>
+</body>
+</html>

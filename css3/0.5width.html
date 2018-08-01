@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+            /*方法一 会改变原先比例*/
+        /*div{
+            width: 200px;
+            height: 200px;
+            border:1px  solid #666666;
+            transform: scale(.5);
+            transform-origin: 0 0;!*设置原点，使缩放后的位置不变*!
+        }
+        */
+
+        /*方法二  正常 推荐使用*/
+        div{
+            width: 100px;
+            height: 100px;
+            background: #aa632c;
+        }
+        div::after{
+            content: "";
+            display: block;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #666666;
+            transform: scale(0.5);
+            transform-origin: 0 0;
+            box-sizing: border-box;
+
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        div{
+            width: 200px;
+            height: 200px;
+            border: 10px solid;
+            border-radius: 50%;
+            float: left;
+            position: absolute;
+        }
+        div::after{
+            width: 200px;
+            height: 200px;
+            border: 10px solid;
+            border-radius: 50%;
+            float: left;
+            position: absolute;
+            content: "";
+            left: -10px;/*相对于父级定位，但不包括border，所以利用负边距使他们重合*/
+            top:-10px;
+        }
+        .blue{
+            border-color: blue;
+            top:0;
+            left: 0;
+        }
+        .blue::after{
+            border-color: blue;
+            z-index: 1;
+            border-bottom-color: transparent;/*将下边框设为透明，使看到的为黄色环 以下同理*/
+        }
+        .black{
+            border-color: black;
+            top:0;
+            left: 230px;
+        }
+        .black::after{
+            border-color: black;
+            z-index: 1;
+            border-left-color: transparent;
+        }
+        .red{
+            border-color: red;
+            top:0;
+            left: 460px;
+        }
+        .red::after{
+            border-color: red;
+            z-index: 1;
+            border-left-color: transparent;
+        }
+        .yellow{
+            border-color: yellow;
+            top:110px;
+            left: 110px;
+        }
+        .yellow::after{
+            border-color: yellow;
+        }
+        .green{
+            border-color: green;
+            top:110px;
+            left: 340px;
+        }
+        .green::after{
+            border-color: green;
+            z-index: 1;
+            border-top-color: transparent;
+            border-right-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="blue"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="green"></div>
+</body>
+</html>

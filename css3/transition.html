@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div1{
+            width: 200px;
+            height: 200px;
+            background: red;
+
+            animation:  run 2s ease 1s forwards ;/*第一个参数run 表示动画的名 自定义
+                                                  第二个参数表示动画执行时间
+                                                  第三个参数动画延迟时间
+                                                  第四个参数forwards表示动画执行结束后不允许回到最初状态
+                                                  不写时会回到最初状态
+
+                                                  不需要条件触发
+                                                  */
+        }
+       /* .div1:hover{
+            transition: width 1s ease 1s; !*过渡  需要条件触发*!
+        }*/
+
+        @keyframes run {
+            50%{
+                width:500px;
+            }
+            80%{
+                width:800px;
+            }
+            100%{
+                width:1000px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+
+    </div>
+</body>
+</html>

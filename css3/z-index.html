@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height: 100px;
+            width: 300px;
+            position: absolute;/*三个元素将重叠在一起 可以设置top left right bottom值使他们分开*/
+            text-align: right;
+        }
+        .div1{
+            z-index: 3;
+            background: #0000ff;
+        }
+        .div2{
+            z-index: 2;
+            background: #aa632c;
+            top:30px;
+            left: 30px;
+        }
+        .div3{
+            z-index: 1;
+            background: #666666;
+            top:60px;
+            left: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">z-index:3</div>
+    <div class="div2">z-index:2</div>
+    <div class="div3">z-index:1</div>
+</body>
+</html>
