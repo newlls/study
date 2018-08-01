@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            background: #0f0f0f;
+        }
+        .container{
+            width: 750px;
+            margin: 0 auto;
+        }
+        .h-date{
+            background: #ffffff;
+            font-size: 30px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+        }
+        .h-sign{
+            padding: 20px;
+            border-bottom: 1px solid #999;
+        }
+        .h-sign span{
+            width: 45px;
+            height: 35px;
+            color: #ffffff;
+            display: inline-block;/*行级块元素 给没有内容的行级元素留出空间  因为行级元素的宽高由内容撑的*/
+            font-size: 25px;
+            vertical-align: middle;/*文本垂直居中 */
+        }
+        .h-sign span:nth-child(even){
+            width: 75px;
+        }
+        .container .empty{
+            background: #ffffff;
+        }
+        .container .selected{
+            background: red;
+        }
+        .container .sold{
+            background: blue;
+        }
+        .clear-fix::after{/*清除浮动*/
+            content: "";
+            clear: both;
+            display: block;
+        }
+        .content{
+            position: relative;
+           /* min-height: 100%;*/
+            border-bottom: 1px solid #999999;
+        }
+        .content li{
+            background: #ffffff;
+            width: 45px;
+            height: 35px;
+            float: left;
+            margin: 20px 10px;
+        }
+        .content li:nth-child(6){
+            margin-left:110px;
+        }
+        .s-bar{
+            background: #333333;
+            position: fixed;/*固定定位*/
+            height: 100px;
+            bottom: 80px;
+            width: 750px;
+        }
+        .text{
+            margin: 5px 5px;
+        }
+        .text span{
+            color: #ffffff;
+            font-size: 25px;
+        }
+        .text span:nth-child(1){
+            float: left;
+        }
+        .text span:nth-child(2){
+            float: right;
+        }
+        .adds li{
+            color: #ff9900;
+            float: left;
+            border:1px solid #ff9900;
+            padding: 5px;
+            margin: 5px 10px;
+            font-size: 20px;
+        }
+        .footer{
+            height: 80px;
+            width: 750px;
+            background: #888;
+            line-height: 100px;
+            position: fixed;
+            bottom: 0;
+        }
+        .f-left{
+            color: #ffffff;
+            font-size: 20px;
+            float: left;
+        }
+        .f-right{
+            background: #ff9900;
+            color: #333333;
+            float: right;
+            width: 270px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container clear-fix">
+        <div class="header">
+            <div class="h-date"></div>
+            <div class="h-sign">
+                <span class="empty"></span>
+                <span>可选</span>
+                <span class="selected"></span>
+                <span>已选</span>
+                <span class="sold"></span>
+                <span>已售</span>
+            </div>
+        </div>
+        <div class="content clear-fix">
+            <!--<ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li class="selected"></li>
+                <li></li>
+                <li class="sold"></li>
+                <li></li>
+                <li class="selected"></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li class="sold"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li class="sold"></li>
+                <li class="selected"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>-->    <!--这是为了实现静态布局写的，布局完成后 其内容由jQuery动态生成-->
+        </div>
+        <div class="s-bar">
+            <div class="text clear-fix">
+                <span>已选座位</span>
+                <span>最多可选择5个座位</span>
+            </div>
+            <div class="adds clear-fix">
+              <ul class="clear-fix">
+                  <!--<li>3排6座</li>
+                  <li>3排6座</li>-->
+              </ul>
+            </div>
+        </div>
+        <div class="footer clear-fix">
+            <div class="f-left">
+                <span>合计：</span>
+                <span class="total-price"></span>
+                <span class="price-count"></span>
+            </div>
+            <div class="f-right">
+                确认选座
+            </div>
+        </div>
+    </div>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        var myDate=new Date();
+        var thisMonth=myDate.getMonth();
+        var thisDate=myDate.getDate();
+        var thisHouver=myDate.getHours();
+        var thisMinute=myDate.getMinutes();
+        $('.h-date').html('今天是'+thisMonth+'月'+thisDate+'日'+thisHouver+':'+thisMinute);
+
+        var cListHtml=""; //存储动态生成的座位
+        var htmArr=[]; //定义一个数组 用来存储被选中的座位信息
+        for(var i=0;i<10;i++){
+            cListHtml+="<ul class='clear-fix'>";
+            for(var j=0;j<10;j++){
+                if(Math.random()>0.7){
+                    cListHtml+="<li class='sold' sign='"+(i+1)+"排"+(j+1)+"座'></li>";/*sign用来存储座位信息*/
+                }
+                else {
+                    cListHtml+="<li class='empty' sign='"+(i+1)+"排"+(j+1)+"座'></li>"
+                }
+            }
+            cListHtml+="</ul>"
+        }
+        $(".content").html(cListHtml);
+        $(".content li").on("click",function () {
+            if((htmArr.length>=5&& !$(this).hasClass("selected"))){
+                alert("超出范围");
+            }
+            else  if($(this).hasClass("sold")){
+                alert("此座位已经被占了");
+            }
+            else {
+                $(this).toggleClass("selected").toggleClass("empty");
+                if($(this).hasClass("empty")){//又变回可选状态时 从选中区移除
+                    removeArr($(this).attr('sign'));
+                }else {//否则添加到选中区
+                    htmArr.push($(this).attr('sign'));
+                }
+                var price=100;
+                var total=htmArr.length*price;
+                $('.total-price').html('￥'+total);
+                $('.price-count').html('￥'+htmArr.length+'*100')
+            }
+            addArr();
+        });
+
+        function removeArr(key) {
+            for(var i=0;i<htmArr.length;i++){
+                if(htmArr[i]==key){
+                    htmArr.splice(i,1);//移除第i个元素
+                }
+            }
+        }
+        function addArr() {
+            var thisHtml = "";
+            for(var i=0;i<htmArr.length;i++){
+                thisHtml+="<li>"+htmArr[i]+"</li>"
+            }
+            $(".adds ul").html(thisHtml);
+        }
+
+    </script>
+</body>
+</html>

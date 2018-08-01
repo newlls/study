@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        /*window.onload = function(){
+         document.getElementById('div1');/!*页面中所以资源加载完才执行*!/
+         };*/
+
+        /*$(document).ready(function(){//文档就绪函数，结构加载完就行
+
+         });
+         */
+
+       /* $(function () {
+            document.getElementById('div1');
+        })*/
+
+        /*window.onload=function () {
+            console.log(1111);
+        };
+        window.onload=function () {
+            console.log(2222);/!*只有2222 因为上面的被覆盖了*!/
+        }*/
+
+        $(function () {
+            console.log(1111);
+        });
+        $($(function () {
+            console.log(2222);/*都正常输出  可以重复调用 不会被覆盖*/
+        }))
+   </script>
+</head>
+<body>
+    <div id="div1">
+        111
+    </div>
+</body>
+</html>

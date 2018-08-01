@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       .box{
+           width: 100px;
+           height: 100px;
+           background: red;
+       }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button id="btn">点击</button>
+    <button id="btn1">点击</button>
+    <button id="btn2">点击</button>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $("#btn").on("click",function () {
+            $(".box").hide();/*隐藏*/
+        })
+        $("#btn1").on("click",function () {
+            $(".box").show();
+        })
+        $("#btn2").on("click",function () {
+            $(".box").toggle();
+        })
+    </script>
+</body>
+</html>

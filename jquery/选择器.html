@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="div1">566666</div>
+    <script src="jquery-3.3.1.min.js"></script>
+      <script>
+         /* console.log($("#div1"));*/
+          var oDiv=document.getElementById('div1');
+          console.log($(oDiv));/*把原生的js对象转化为jQuery*/
+          console.log($(oDiv).html());/*jQuery获取元素内容的方法*/
+          console.log(oDiv.innerHTML);/*原生js获取元素内容*/
+
+         console.log($(oDiv).innerHTML);   /*原生js方法不能与jQuery混用  即这样是不对的  */
+
+
+
+         /*
+          原生对象=》jquery  $(原生对象)
+          jq ->原生  $div.get(0)    $div[0]
+          */
+         $div = $("#div1");
+         console.log($div[0]);
+      </script>
+</body>
+</html>

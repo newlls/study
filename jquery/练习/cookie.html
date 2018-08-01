@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+/*        var date=new Date();
+        date.setDate(30);//设置时间
+        document.cookie='name=zs;expries='+date;//expries 设置cookie过期时间
+
+        console.log(document.cookie);//获取cookie*/
+
+        //设置过期时间的方法
+        function setCookie(key,value,day) {
+            var str=key+"="+value+";"  ;
+            if(day){//day为有效值  即day传了值
+                var date=new Date();
+                //date.getDate();  获取当前时间
+                date.setDate(date.getDate()+day);
+                str+='expries='+date;
+            }
+            document.cookie=str;
+        }
+        setCookie('name','zhangsan');
+        setCookie('age','20',2);
+
+        //获取cookie值
+        function getCookie(key) {
+            var sCookie=document.cookie;//'name=zhangsan; age=20'
+            var arr=sCookie.split('; '); //分隔符为；加空格  ['name=zhangsan','age=20']
+            for(var i=0;i<arr.length;i++){
+                var arr1=arr[i].split('=');  //'name=zhangsan' =>['name','zhangsan']
+                if(arr1[0]==key){
+                    return arr1[1];
+                }
+            }
+        }
+        console.log(  getCookie('age')   );
+
+        //移除cookie
+        function removeCookie(key) {
+            setCookie(key,'',-1);//day=-1 时间过期
+        }
+        removeCookie('age');
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button class="fadein">fadein</button>
+    <button class="fadeout">fadeout</button>
+    <button class="fadetoggle">fadetoggle</button>
+    <button class="slidedown">slidedown</button>
+    <button class="slideup">slideup</button>
+    <button class="slidetogg">slidetogg</button>
+    <button class="animate">animate</button>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $(".fadein").on("click",function () {
+            $(".box").fadeIn();
+        });
+        $(".fadeout").on("click",function () {
+            $(".box").fadeOut();
+        });
+        $(".fadetoggle").on("click",function () {
+            $(".box").fadeToggle(); /*toggle表示切换*/
+        });
+        $(".slidedown").on("click",function(){
+            $(".box").slideDown(1000);/* 用滑动动画显示一个匹配元素。数字决定动画将运行多久*/
+        });
+        $(".slideup").on("click",function(){
+            $(".box").slideUp("slow");
+        });
+        $(".slidetogg").on("click",function () {
+            $(".box").slideToggle()
+        })
+        $(".animate").on("click",function () {
+            $(".box").animate({
+                width:400,
+                height:400
+            },1000,"swing",function () {
+
+            })
+        })
+    </script>
+</body>
+</html>

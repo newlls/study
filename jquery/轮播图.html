@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .container{
+            width:490px;
+            height: 170px;
+            margin: 20px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .img-box{
+            width: 2940px;
+            position: absolute;
+        }
+        .img-box img{
+            float: left;
+        }
+        .btn{
+            position: absolute;
+        }
+        .btn li{
+            float: left;
+            border: 1px solid;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 12px;
+            border-radius: 50%;
+            text-align: center;
+            background: #f90;
+            color: #fff;
+        }
+        .left-btn{
+            left: 10px;
+            bottom: 10px;
+        }
+        .right-btn{
+            right: 10px;
+            bottom: 10px;
+        }
+        .right-btn .active{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="img-box">
+            <img src="image/01.jpg" alt="">
+            <img src="image/02.jpg" alt="">
+            <img src="image/03.jpg" alt="">
+            <img src="image/04.jpg" alt="">
+            <img src="image/05.jpg" alt="">
+        </div>
+        <div class="left-btn btn">
+            <ul>
+                <li>&lt</li>
+                <li>&gt</li>
+            </ul>
+        </div>
+        <div class="right-btn btn">
+            <ul>
+                <li class="active">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+    </div>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        var $con=$(".container");
+        var $rightNum=$con.find(".right-btn li");
+        var $img=$con.find(".img-box");
+        var $oneWidth=$con.find(".img-box img").eq(0).width;
+        var $index=0;
+        $rightNum.on("click",function () {
+            $(this).addClass("active").siblings("li").removeClass("active");
+            $index=$(this).index();
+            $img.animate({
+                "right":$oneWidth*$index
+            });
+        })
+    </script>
+</body>
+</html>

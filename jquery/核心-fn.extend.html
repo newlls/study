@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        label{
+            margin: 0.5em;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <label><input type="checkbox" name="Foo">Foo</label>
+    <label><input type="checkbox" name="Bar">Bar</label>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        jQuery.fn.extend({
+            check:function () {  /*自定义的check方法*/
+                return this.each(function () {
+                    this.checked=true;
+                })
+            },
+            uncheck: function() {
+                return this.each(function() { this.checked = false; });
+            }
+        });
+        $("input[type='checkbox']").check();
+    </script>
+</body>
+</html>

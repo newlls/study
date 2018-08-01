@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            list-style: none;
+        }
+        .box{
+            margin: 50px;
+        }
+        .hmain{
+            float: left;
+            width: 150px;
+            background: #ccccca;
+            font-size: 20px;
+        }
+        .hmain ul{
+            background: #000;
+            color: #fff;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul class="box">
+        <li class="hmain">
+            <span>菜单项1</span>
+            <ul>
+                <li>11</li>
+                <li>12</li>
+                <li>13</li>
+            </ul>
+        </li>
+        <li class="hmain">
+            <span>菜单项2</span>
+            <ul>
+                <li>21</li>
+                <li>22</li>
+                <li>23</li>
+            </ul>
+        </li>
+        <li class="hmain">
+            <span>菜单项3</span>
+            <ul>
+                <li>31</li>
+                <li>32</li>
+                <li>33</li>
+            </ul>
+        </li>
+    </ul>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        $('.hmain').hover(function () {
+            $('.hmain ul:animated').stop(false,true);//stop第一个参数表示是否清除后面队列，
+                                                    // 第二个参数表示动画是否跳转到最后
+            $(this).children('ul').slideDown();
+        },function () {
+            $(this).children('ul').slideUp();
+        })
+    </script>
+</body>
+</html>

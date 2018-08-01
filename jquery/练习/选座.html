@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            background: #000;
+        }
+        .container{
+            width: 520px;
+            margin: 10px auto;
+        }
+        h3{
+            background: #fff;
+            height: 50px;
+            line-height: 50px;
+            width: 300px;
+            margin: 66px;
+            text-align: center;
+        }
+        .menu{
+            margin-left: 70px;
+        }
+        .menu li{
+            float: left;
+            margin: 20px 5px 20px 0;
+            width:50px;
+            height: 20px;
+            color: #ffff;
+        }
+        .wiht{
+            background: white;
+        }
+        .red{
+            background: red;
+        }
+        .blue{
+            background: blue;
+        }
+        .seats div{
+            float: left;
+            margin-left: 50px;
+
+        }
+        .seats .unavailable{
+            background: blue;
+        }
+        .clear-fix::after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+        .left,.right{
+            width: 150px;
+        }
+        .left li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            background:#fff;
+            margin: 5px;
+        }
+        .right li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            background:#fff;
+            margin: 5px;
+        }
+        .left .red,.right .red{
+            background: red;
+        }
+        .describe{
+            margin: 10px;
+            height: 50px;
+        }
+        .describe span{
+            color: #fff;
+            margin: 60px;
+        }
+       /* .selected{
+            text-align: center;
+        }*/
+        .selected span{
+            color: #ff9900;
+            margin: 15px;
+            width:70px ;
+            border:1px solid #ff9900;
+        }
+        .botton{
+            margin-top:30px;
+            width: 500px;
+            height: 70px;
+            line-height: 70px;
+            background: #333333;
+        }
+        .botton p{
+            float: left;
+            margin-left: 10px;
+            color:#fff;
+        }
+        .suer{
+            margin-left: 300px;
+            text-align: center;
+            background: #ff9900;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>今天是7月23 9:20</h3>
+        <div class="menu clear-fix">
+            <ul>
+                <li class="wiht"></li>
+                <li>可选</li>
+                <li class="red"></li>
+                <li>已选</li>
+                <li class="blue"></li>
+                <li>已售</li>
+            </ul>
+        </div>
+        <div class="seats clear-fix ">
+            <div class="left">
+                <ul>
+                    <li class="unavailable"></li>
+                    <li></li>
+                    <li></li>
+                    <li class="unavailable"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li class="unavailable"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li class="unavailable"></li>
+                    <li class="unavailable"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="right">
+                <ul>
+                    <li></li>
+                    <li class="unavailable"></li>
+                    <li></li>
+                    <li class="unavailable"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li class="unavailable"></li>
+                    <li class="unavailable"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <div class="describe">
+            <span>已选座位</span>
+            <span>最多可选5个座位</span>
+        </div>
+        <div class="selected">
+            <span>9排3座</span>
+        </div>
+        <div class="botton clear-fix">
+            <p>合计：<b>￥<span id="total">0</span></b></p>
+            <div class="suer">确认选座</div>
+        </div>
+    </div>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        var price=80;
+        var seatArray = new Array();
+        for(var i=0;i<9;i++){
+            seatArray[i]=new Array();
+            for(var j=0;j<5;j++){
+                seatArray[i][j]=1;
+            }
+        }
+        for(var k=0;k<5;k++){
+            $('.left ul').append(
+            '<li class="unavailable"></li>'+'<li class="unavailable"></li>'+'<li></li>'+'<li></li>'+'<li></li>'
+            )
+        }
+        for(var k=0;k<5;k++){
+            $('.right ul').append(
+                '<li></li>'+'<li></li>'+'<li></li>'+'<li class="unavailable"></li>'+'<li></li>'
+            )
+        }
+        $('.seats li').on('click',function () {
+            $(this).toggleClass('red');
+            var row = parseInt($(this).parent().index()/2);
+            var col = $(this).index();
+
+            $('.selected').append('<span>3排4座</span>');
+        });
+
+
+
+    </script>
+</body>
+</html>

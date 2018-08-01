@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: red;
+            padding: 20px;
+            margin: 10px;
+            border:5px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" checked />
+    <select name="" id="">
+        <option value=""></option>
+    </select>
+    <div id="div1" class="aa">hahhahahah</div>
+    <div id="div2" class="cc">hahhahahah</div>
+    <input type="text" value="111"/>
+    <button class="btn">click</button>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+       /* console.log($('#div1').attr('class'));*/      /* 一个值获取*/
+        //console.log($('#div1').attr('class','bb'));     /*设置div1的class为bb*/
+        $('.btn').on('click',function () {
+           // $(':text').val('222');  //修改text的值为222  当val（）不传值得时候 表示获取值
+
+           // $('#div1').addClass('bb');
+           // $('#div1').toggleClass('bb');//添加class，再次点击移除class，即可以来回切换
+           // $('#div1').toggle();           //移除class 同样可以来回切换
+
+            //$('#div1').css('background','red'); //设置单个样式
+            /*$('#div1').css({                    //多个
+                height:'50px',
+                width:'100px',
+                background:'red'
+            })*/
+
+           /* console.log($('#div2').height());   //height 不包括margin padding
+            console.log($('#div2').innerHeight());//包括padding的值
+            console.log($('#div2').outerHeight(true));// 包括margin padding
+            */
+
+            console.log($('#div2').offset().top);//相对于文档
+        })
+    </script>
+</body>
+</html>

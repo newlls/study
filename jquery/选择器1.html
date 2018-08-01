@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li class="aa">11</li>
+        <li id="li2">22</li>
+        <li id="li3"></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        /*$('.aa');*/                               /*取到class=aa的元素*/
+        /*$('.aa').css('color','red');*/            /*设置样式*/
+        /*$('li').css('color','blue');*/            /*选中所有li  即标签选择器*/
+
+        /*$('.aa+li').css('color','red');*/             /* +  表示class=aa的下一个兄弟*/
+       /* $('.aa~li').css('color','red');*/             /* ~   表示aa后面的所有兄弟*/
+
+        /*$('li[id]').css('color','red');*/             /*选中所有 有id的li元素 不管id的具体值*/
+        /*$('li[id=li2]').css('color','red');*/             /*选id=li2  的 li元素 */
+       /* $('li[id！=li2]').css('color','red');*/
+
+        $("li[id*=li2]").css('background','blue');      /*     *=  包含的意思*/
+
+
+    </script>
+</body>
+</html>
