@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #can{
+            background: #9d9d9d;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="can" width="400" height="400"></canvas><!--width height采用内联样式-->
+    <script>
+        var oCan=document.getElementById('can');
+        var can=oCan.getContext("2d");//返回可以绘画的环境
+        /*can.beginPath();//开始
+        can.moveTo(100,150);//相当于起始坐标
+        can.lineTo(350,50);//相当于终点坐标
+        can.strokeStyle='red';//设置线的颜色
+        can.lineWidth='10';
+        can.stroke();//赋予颜色，使其可见 相当于描边
+
+
+        can.beginPath();
+        can.moveTo(30,50);
+        can.lineTo(150,80);
+        can.strokeStyle='blue';
+        can.lineWidth='5';
+        can.lineCap='round';
+        can.stroke();*/
+
+        //画圆  arc（x，y，r，开始的弧度，结束的弧度，方向（顺时针：false  逆时针：true）)
+        can.arc(200,200,50,0*Math.PI,1*Math.PI,false);
+        can.stroke();
+
+
+    </script>
+</body>
+</html>

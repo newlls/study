@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            background: #999999;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="box" width="500" height="500"></canvas>
+    <script>
+        var oCan=document.getElementById('box');
+        var can=oCan.getContext("2d");
+        oCan.onmousedown=function (e) {
+            can.moveTo(e.clientX,e.clientY);
+            oCan.onmousemove=function (e) {
+                can.lineTo(e.clientX,e.clientY);
+                can.stroke();
+            };
+            oCan.onmouseup=function () {
+                oCan.onmousemove=null;
+            }
+        }
+
+    </script>
+</body>
+</html>

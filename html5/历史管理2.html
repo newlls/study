@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <span id="num"></span>
+    <button id="btn">按钮</button>
+    <script>
+        var oBtn=document.getElementById('btn');
+        var oNum=document.getElementById('num');
+        var obj={};
+        oBtn.onclick=function () {
+            var arr = [];
+            for (var i = 0; i < 5; i++) {
+                arr.push(Math.ceil(Math.random() * 10));
+            }
+            oNum.innerHTML=arr;
+            var rad=Math.random();
+            obj[rad]=arr;
+            history.pushState(arr,"");
+        };
+        window.onpopstate=function (e) {
+            console.log(obj[e.state]);
+        }
+
+    </script>
+</body>
+</html>

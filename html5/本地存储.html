@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        //document.cookie="name=xiaoming";
+        //console.log(document.cookie);
+       /* var timer=new Date();
+        timer.setDate(timer.getDate() + 1);
+        document.cookie="school=linda;expires="+timer.toUTCString();
+        console.log(document.cookie);*/
+
+        function setCookie(key,value,exprie) {
+            var str=key+"="+value+";" ;
+            var timer=new Date();
+            timer.setDate(timer.getDate()+exprie);
+            str+=exprie+"="+timer.toUTCString();
+            document.cookie=str;
+        }
+         setCookie('name','xiaoming',1);
+       // console.log(setCookie('name','xiaoming',1));
+
+        document.cookie="school=linda;name=xiaoming";
+        //console.log(document.cookie);
+        function getCookie(key) {
+            var cook=document.cookie;
+            var arr=cook.split(";");
+           // console.log(arr);  //["school=linda", " name=xiaoming"]
+            for (var i=0;i<arr.length;i++){
+                var arr1=arr[i].split("=");
+              // console.log(arr1);    // ["school", "linda"] [" name", "xiaoming"]
+                if(arr1[0].trim()==key){
+                    return arr1[1];
+                }
+            }
+        }
+        console.log(getCookie('name'));
+        function delCookie(key) {
+
+        }
+
+    </script>
+</body>
+</html>
