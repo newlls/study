@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+      /*  function a(a,b,c,d) {
+            console.log(a,b,c,d);
+        }*/
+     /* function a(...arg) {  // ...扩展运算符 接收数量不确定的参数
+          console.log(arg);
+      }
+        a("a","b","c","d");*/
+
+      /* function a(a,...arg){
+        console.log(a,arg,e);   //e is not defined  剩余运算符 只能写在最后
+       }
+      a("a","b","c","d","e");*/
+
+/*     let arr=[1,2,3,4];
+     let arr1=["a",...arr,"b"];
+     console.log(arr1);*/   //作为数组的一部分
+
+    /*let arr=[1,2,3,4];
+    let arr1=[...arr];
+    console.log(arr1);*/
+
+       let arr = [1,2,3,4]
+       let arr2 = [...arr];
+       arr[0]="a";
+       console.log(arr2);
+
+    let obj1={
+        name:"xiaoming",
+        age:"20"
+    };
+    let obj2={
+        school:"linda"
+    }
+
+
+
+    </script>
+</body>
+</html>

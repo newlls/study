@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var a=1;
+        var b=2;
+        /*var str=`${a}+${b}=${a+b}`;
+        console.log(str);*/
+
+        /*var oBox=document.getElementById('box');
+        var str1="<h1 class='aa'>hello</h1>";   //外层为"" 所以里层的class='' 单引号
+        var str2=`<h1 class="aa">hello</h1>`;    //字符串扩展 不需要考虑单双引号问题
+        oBox.innerHTML=str2;
+        console.log(oBox.innerHTML); */        //<h1 class="aa">hello</h1>
+
+
+       /* var str = "hello world hello";
+        //console.log(str.indexOf("fellow"));  //查找对应元素第一次出现的位置，有 返回元素索引，没有返回-1
+         console.log(str.includes("h"));*/   //查找是否包含相应元素，有 则返回true ，没有返回false
+
+        //let str = "hello world";
+         //console.log(str.startsWith("world")); //检查str是否以world开头，是 则返回true，否则返回false
+        // console.log(str.endsWith("world"));  //检查str是否以world结尾，是 则返回true，否则返回false
+
+        //let str = "hello";
+        //console.log(str.padStart(10,"xy"));
+        // console.log(str.padStart(3,"xy"));
+        // 在str前面重复添加元素xy，是其长度达到所给长度，若所给长度小于str本身长度，则不添加
+        // console.log(str.padEnd(10,"xy"));    //同padStart
+
+        let str = "hello";
+         console.log(str.repeat(2)); //hellohello      str重复次数
+    </script>
+</body>
+</html>
