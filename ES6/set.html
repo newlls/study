@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+       /* let arr=new Set([1,2,3,4,5,6]);  //不允许有重复值   可用于数组去重
+        console.log(arr);*/ //Set(6) {1, 2, 3, 4, 5, …}
+
+        let arr1=[1,2,3,4,5,6];
+        //console.log(new Set(arr1));  // {1, 2, 3, 4, 5, …} 对象
+
+        let arr2=new Set(arr1);
+        let arr3=[];
+        for(items of arr2){
+            if(arr3.includes(items)){
+                arr3.push(items);
+            }
+        }
+       // console.log(arr3);
+
+        console.log(Array.from(new Set(arr1)))   // [1, 2, 3, 4, 5, 6]
+    </script>
+</body>
+</html>

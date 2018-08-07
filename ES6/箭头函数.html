@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    //箭头函数中没有arguments方法
+
+    <div id="box">box</div>
+    <script>
+        /*function foo(a,b){
+             return a+b
+           }
+          console.log(foo(1,2));*/  //3
+
+       /* let fun=(a,b)=>{
+            console.log(a+b);
+        }
+        fun(2,3);*/   //5
+
+        /*function foo(a,b){
+             return a+b
+           }
+          console.log(foo(1,2));
+
+           let fun = (a,b) =>{a+b};  //可以不写返回值  自动返回
+           console.log(fun(2,3));*/
+
+        var oBox=document.getElementById('box');
+       /* oBox.onclick=function () {
+            setInterval(function () {
+                console.log(this);   //window
+            },1000)
+        };*/
+
+        oBox.onclick=function () {
+            setInterval(() =>{   // 箭头函数this 指向定义时的作用域
+                console.log(this);
+            },1000);  //<div id="box">box</div>
+        }
+    </script>
+</body>
+</html>

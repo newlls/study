@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+        <li>e</li>
+        <li>f</li>
+    </ul>
+    <script>
+/*        console.log(a);
+        var a=10;
+        console.log(a);
+        function a() {
+            console.log("abc");
+        }
+        a=123;
+        a();*/  //就近原则  这个a=123 不是方法
+       /*
+        function a() {
+            var b
+        }*/
+
+        /*var aLi=document.querySelectorAll("ul li");
+        for(var i=0;i<aLi.length;i++){
+            aLi.onclick=function () {
+                //console.log(i);//输出6
+
+            }
+        }*/
+
+
+    function f1() {
+        var n=999;
+        nadd=function () {
+            n+=1
+        }
+    }
+
+    </script>
+</body>
+</html>

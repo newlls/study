@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">dd</div>
+    <div id="div"></div>
+    <script>
+        //call  改变this指向
+      /*  var oBox=document.getElementById('box');
+        var oDiv=document.getElementById('div');
+        oBox.onclick=function () {
+            console.log(this);
+        }*/
+
+      /*var aa="123";
+        function foo(name,age) {
+            console.log(this.aa); //123
+            console.log(name);
+            console.log(age);
+        }
+        //foo("lisi","20");
+        var obj={
+            aa:"abc"
+        };
+        //foo.call(obj,"zhangsan","10");
+       // foo.apply(obj,["zhangsna"],"20");//直接执行
+
+        var foo1=foo.bind(obj,"lisi");    //调用才执行   ,调用时传bind剩余参数
+        foo1("30");*/
+
+
+
+        function foo(name,age) {
+
+            console.log(this.school);
+            console.log(name);
+            console.log(age);
+        }
+
+          var  obj={
+              school:"linda"
+          };
+        Function.prototype.bind2=function () {
+          let obj=Array.from(arguments);
+          let _this=this;
+
+        };
+          foo(obj,"20","zzz")
+
+    </script>
+
+</body>
+</html>

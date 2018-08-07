@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //==值相等    ===类型和值相等
+     /*    var obj = {
+           name:"xiaoming",
+           age:"18",
+           show:function(){
+             console.log(this.name);
+           }
+         };
+         obj.show();   //xiaoming
+
+         let name="xiaohong";
+         let age="19";
+         let obj2 = {
+           name,
+           age,
+           show(){
+             console.log(this.name);
+           }
+         };
+         obj2.show();*/    //xiaohong
+
+       /*  let other = "age";
+         let obj = {
+           name:"xiaoming",
+           [other]:"18"         //属性名表达式:[]
+         };
+         console.log(obj);*/   //{name: "xiaoming", age: "18"}
+
+      /*   let obj = {
+           name:"xiaoming"
+         };
+         let obj2 = {
+           name:"xiaohong"
+         };
+        console.log(Object.is(obj,obj2));  //false
+
+         obj = obj2;
+         console.log(Object.is(obj,obj2));  //true
+
+         console.log(NaN === NaN);          //false   ==值相等    ===类型和值相等
+         console.log(Object.is(-0,+0));     //false   等同于===
+         console.log(Object.is(NaN,NaN)); */  //true
+
+      /*   var obj = {
+           name:"xiaoming",
+           age:"18"
+         };
+         var obj2 = {
+           school:"linda",
+           teacher:{
+             name:"lisi"
+           }
+         };
+         Object.assign(obj,obj2);   //对象合并,第一个参数是目标对象，后面的参数 都是源对象。浅拷贝
+         //console.log(obj);      //{name: "xiaoming", age: "18", school: "linda", teacher:{name: "lisi"}}
+
+        obj2.teacher.name = "zhangsan";
+         console.log(obj); */     //{name: "xiaoming", age: "18", school: "linda", teacher:{name: "zhangsan"}}
+
+         var obj = {
+           name:"xiaoming",
+           age:"18"
+         };
+
+         console.log("name" in obj);    //true   'name' in obj  判断对象是否包含某个属性
+
+         let arr = [1,2,3,4,5];
+         console.log("a" in arr);    //false
+        console.log(6 in arr);      //false   数字 in arr 判断数组位置是否有值
+    </script>
+</body>
+</html>

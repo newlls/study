@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="../jquery/jquery-3.3.1.min.js"></script>
+    <script>
+        $.get('a.json',function (data) {
+            if(data.status==1){
+                $.get('b.json',function (data) {
+
+                })
+            }
+        });
+
+
+        var p1=new Promise(function (resolve,reject) {
+            $.get('a.json',function (data) {
+                if(data.status==1){
+                    resolve();
+                }
+            })
+        })
+    </script>
+</body>
+</html>

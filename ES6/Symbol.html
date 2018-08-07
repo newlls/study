@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let name=Symbol();//新的原始数据类型Symbol，表示独一无二的值。可以保证不会与 其他属性名产生冲突。
+        let obj={
+            name:"xiaoming",
+            age:"20"
+        };
+        obj[name]="xiaohong";//获取 设置都用[]
+        console.log(obj); //{name: "xiaoming", age: "20", Symbol(): "xiaohong"}
+
+        for(items in obj){
+            console.log(items);  //xiaoming 20  //私有属性，循环找不到
+        }
+
+    </script>
+</body>
+</html>
