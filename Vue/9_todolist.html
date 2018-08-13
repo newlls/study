@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        #app{
+            margin: 20px;
+        }
+        #app .search-box{
+            text-align: center;
+            margin: 0 auto;
+            width: 500px;
+        }
+        #app .add{
+            width: 900px;
+            font-size: 18px;
+            margin: 0 auto;
+        }
+        #app .del{
+            float: left;
+            border: 1px solid sandybrown;
+            background: #C2A661;
+            border-radius: 5px;
+            margin-top: 6px;
+            padding: 6px;
+        }
+        #app .active{
+            background: #C2A661;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="search-box">
+            <form class="form-inline">
+                <div class="form-group mx-sm-3 mb-2">
+                    <input v-model="searchVal" type="text" class="form-control" id="inputPassword2" placeholder="请输入关键字">
+                </div>
+                <button type="button" class="btn btn-primary mb-2">搜索</button>
+            </form>
+        </div>
+
+
+        <div class="add">
+            <form class="form-inline">
+                <div class="input-group mb-2 mr-sm-2">
+                    商品名称: <input v-model="addgoodslist.name" type="text" class="form-control" id="inlineFormInputName2" placeholder="请输入名称">
+                </div>
+                <div class="input-group mb-2 mr-sm-2">
+                    商品价格：<input v-model="addgoodslist.price" type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="0">
+                </div>
+                <div class="col-auto">
+                    <button @click="addList" type="button" class="btn btn-primary mb-2">添加</button>
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">选择</th>
+                <th scope="col">商品名称</th>
+                <th scope="col">商品价格</th>
+                <th scope="col">删除</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(item, index) in list" :class="{active:item.isselect}" @click="checkLine(item)" :key="index">
+                <td><input type='checkbox' :value="item.id" v-model="chek"></td>
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td class="del">
+                    <button v-on:click="del(item.id)" type="button" class="close" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="button" v-on:click="delcheck">删除选中</button></td>
+                <td colspan="2">总价：{{num}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                addgoodslist:{
+                    id:6,
+                    name:"",
+                    price:0,
+                    isselect:false,
+                },
+                goodsList:[
+                    {id:1,name:"衣服",price:123,isselect:false},
+                    {id:2,name:"鞋子",price:444,isselect:false},
+                    {id:3,name:"裤子",price:555,isselect:false},
+                    {id:4,name:"帽子",price:333,isselect:false},
+                    {id:5,name:"手套",price:888,isselect:false},
+                ],
+                searchVal:'',
+            },
+
+            methods:{
+
+                checkLine(obj){
+                    obj.isselect = !obj.isselect;
+                },
+                addList:function () {
+                    this.goodsList.push(this.addgoodslist);
+                    this.addgoodslist={name:"",price:""}
+                },
+
+               /* del:function (index) {
+                    this.goodsList.splice(index,1);
+                },*/
+
+                del(id){
+                   let newArr=this.goodsList.filter(item =>{
+                        if(item.id!=id){
+                            return item;
+                        }
+                   });
+                   this.goodsList=newArr;
+                },
+
+                delcheck(){
+                    this.goodsList.forEach(item =>{
+                        if(item.isselect){
+                            this.del(item.id);
+                        }
+                    })
+                }
+
+            },
+
+            computed:{
+               list:function () {
+                   var arr=[];
+                   for(var i=0;i<this.goodsList.length;i++){
+                        if(this.goodsList[i].name.search(this.searchVal)!=-1){
+                            arr.push(this.goodsList[i]);
+                        }
+                   }
+                   return arr;
+               },
+
+                chek(){
+                    let cArr = [];
+                    this.goodsList.forEach(val => {
+                        if(val.isselect){
+                            cArr.push(val.id);
+                        }
+                    });
+                    return cArr;
+                },
+
+                num(){
+                    let thisNum=0;
+                    this.goodsList.forEach(val =>{
+                        if(val.isselect){
+                            thisNum+=val.price;
+                        }
+                    });
+                    return thisNum;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

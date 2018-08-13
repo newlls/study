@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            width: 490px;
+            height: 170px;
+            overflow: hidden;
+            margin:50px auto;
+            position: relative;
+        }
+        .slide-img li{
+            position: absolute;
+        }
+        .btn{
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+        }
+        .btn li{
+            float: left;
+            margin-right: 10px;
+            background: #C2A661;
+            color: #fff;
+            border-radius: 50%;
+            height: 30px;
+            line-height: 30px;
+            width: 30px;
+            text-align: center;
+        }
+        .btn .active{
+            background: orangered;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="box">
+            <ul class="slide-img" @mouseover="stop" @mouseout="play">
+                <li v-for="(items,index) in ImgList" :key="index+'il'" v-show="index==nowIndex">
+                    <img :src="'img/'+items+'.jpg'">
+                </li>
+            </ul>
+            <ul class="btn">
+                <li v-for="(items,index) in ImgList" :key="index+'bl'"
+                    :class="{active:index==nowIndex}" @mouseover="change(index)">
+                    {{index+1}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                timer:null,
+                nowIndex:0,
+                ImgList:[
+                    '01',
+                    '02',
+                    '03',
+                ]
+            },
+            methods:{
+                play(){
+                    this.timer=setInterval(()=>{
+                        if(this.nowIndex>=this.ImgList.length-1){
+                            this.nowIndex=0;
+                        }else {
+                           this.nowIndex++;
+                        }
+                    },1000)
+                },
+                change(index){
+                    this.nowIndex=index;
+                },
+                stop(){
+                    clearInterval(this.timer);
+                }
+            },
+            mounted(){
+                this.play();
+            }
+
+
+        })
+    </script>
+</body>
+</html>

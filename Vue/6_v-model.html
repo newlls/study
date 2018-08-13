@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="inp">
+        <input type="text" v-model.lazy="inp">      <!--在“change”时而非“input”时更新 -->
+        <input type="text" v-model.number="inp">    <!--自动将用户的输入数字转为数值类型-->
+        <input type="text" v-model.trim="inp">      <!--自动过滤用户输入的首尾空白字符-->
+        <p>{{inp}}</p>
+
+        <input type="checkbox"  value="篮球" v-model="hobbys">篮球
+        <input type="checkbox" value="足球" v-model="hobbys">足球
+        <input type="checkbox"  value="乒乓球" v-model="hobbys">乒乓球
+        <p>{{hobbys}}</p>
+
+        <input type="radio" name="sexa" value="男" v-model="sex">男 <!--vue中 同一组单选按钮可以不写相同的name，
+                                                                    也可以进行单选，但出于规范化 最好写上-->
+        <input type="radio" name="sexa" value="女" v-model="sex">女
+        <p>{{sex}}</p>
+
+        <select v-model="sel">
+            <option value="a">a</option>
+            <option value="b">b</option>
+            <option value="c">c</option>
+        </select>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                inp:"0",
+                hobbys:"乒乓球" ,       //默认值 不写则为空
+                sex:"",
+                sel:null
+            }
+        })
+    </script>
+
+</body>
+</html>

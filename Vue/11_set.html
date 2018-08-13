@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="chage">change</button>
+        <div>{{arr}}</div>
+        <div>{{obj}}</div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                arr:[1,23,4,5],
+                obj:{
+                    name:"lisi",
+                }
+            },
+            methods:{
+                chage(){
+                    //this.arr[2]="a"
+                    Vue.set(this.arr,2,"a");
+
+                   this.obj.name="zhangsan";
+                   this.obj.age=20;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

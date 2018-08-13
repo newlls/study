@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+        #dialog-bg{
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,.2);
+            position: fixed;
+        }
+        #dialog-content{
+            position: absolute;
+            height: 300px;
+            width: 300px;
+            left: 50%;
+            top:50%;
+            transform:translate(-50%,-50%) ;
+            z-index: 1;
+            border: 1px solid #0f0f0f;
+        }
+        #dialog-header{
+            background: #333333;
+            color: white;
+            padding: 0 10px;
+            height: 40px;
+            line-height: 40px;
+        }
+        .close{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="isLoginShow=true">登录</button>
+        <button @click="isReginsterShow=true">注册</button>
+        <my-dialog v-show="isLoginShow" v-on:close="close">
+            <span slot="title">登录</span>
+            <div slot="content">
+                用户名：<input type="text" placeholder="用户名"><br>
+                密码：<input type="text" placeholder="密码"><br>
+                <button>登录</button>
+            </div>
+        </my-dialog>
+        <my-dialog v-show="isReginsterShow" v-on:close="isReginsterShow=false">
+            <span slot="title">注册</span>
+            <div slot="content">
+                用户名：<input type="text" placeholder="用户名"><br>
+                密码：<input type="text" placeholder="密码"><br>
+                <button>注册</button>
+            </div>
+        </my-dialog>
+    </div>
+    <template id="dialog-temp">
+        <div>
+            <div id="dialog-bg">
+                <div id="dialog-content">
+                     <div id="dialog-header">
+                         <slot name="title">登录</slot>
+                         <span class="close" @click="$emit('close')">X</span>
+                     </div>
+                    <div id="dialog-inner">
+                        <slot name="content"></slot>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script src="vue.js"></script>
+    <script>
+        Vue.component("my-dialog",{
+            template:"#dialog-temp"
+        });
+        new Vue({
+            el:"#app",
+            data:{
+                isLoginShow:false,
+                isReginsterShow:false,
+            },
+            methods:{
+                close(){
+                    this.isLoginShow=false;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

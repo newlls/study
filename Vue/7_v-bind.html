@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .active{
+            color: red;
+        }
+        .box{
+            font-weight: bolder;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!--<div class="active">hahha</div>-->
+        <div v-bind:class="{active:isadd}">hahaha</div>
+
+        <div v-bind:class="[classa,classb]">hello</div>
+
+        <div :style="{fontSize:fsize+'px'}">world</div> <!--vue不认识- 因此改用为驼峰式-->
+
+        <img v-bind:src="sr" alt="">
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                isadd:true,
+                classa:"active",
+                classb:"box",
+                fsize:30,
+                sr:"https://cn.vuejs.org/images/logo.png",
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <weichuang :wmsg="msg1"></weichuang>
+        <test :tmsg="msg2"></test>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        Vue.component("weichuang",{
+            template:`
+                <div>
+                    <h1>hello {{wmsg}}</h1>
+                </div>
+
+            `,
+            props:['wmsg']
+        });
+        new Vue({
+            el:"#app",
+            data:{
+                msg1:"world",
+                msg2:"test",
+            },
+            components:{
+                "test":{
+                    template: `
+                    <h1>hahah {{tmsg}}</h1>
+                    `,
+                    props: ['tmsg']
+                }
+            }
+        })
+    </script>
+</body>
+</html>

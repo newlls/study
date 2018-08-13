@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <div v-if="isIf">
+            isIf
+        </div>
+        <div v-else-if="elseIf">else</div> <!--出现频率低-->
+        <div v-show="isShow">show</div>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        /*let vm=new Vue({
+            el:"#app",
+            data:{
+                isIf:true
+            }
+        })*/
+
+        /*let vm=new Vue({
+            el:"#app",
+            data:{
+                isIf:true,
+                elseIf:false
+            }
+        })*/
+
+        let vm=new Vue({
+            el:"#app",
+            data:{
+                isIf:false,
+                elseIf:false,
+                isShow:false
+            }
+        })
+    </script>
+</body>
+</html>
