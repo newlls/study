@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li>aa</li>
+        <li>bb</li>
+        <li>cc</li>
+        <li>dd</li>
+    </ul>
+    <script>
+
+        // 1.作为数组的一部分
+        let arr=[1,2];
+        let arr1=[3,4,...arr];
+        console.log(arr1); //  [3, 4, 1, 2]
+
+
+        // 2.数组的合并
+        let a1=['a','b'];
+        let a2=['c','d'];
+        console.log(...a1,...a2);   //a b c d
+
+
+        // 3.数组的复制
+        let a3=['x','y','z'];
+        let a4=a3;  // 指向同一个地址 值会改变
+        a3[0]='c';
+        console.log(a4);  // ["c", "y", "z"]
+
+
+
+        let a5 = ['x','y','z'];
+        let a6 = [...a5];   //相当于创建一个人新的数组 所以不会被后面a5改变影响
+        a5[0] = '111';
+        console.log(a6);    // ["x", "y", "z"]
+
+
+        // 4.类数组 转化成数组
+        var aLi = document.querySelectorAll('li');
+        console.log(aLi);  //NodeList(4) [li, li, li, li] 节点列表 即类数组 但没有数组的pop push等方法
+
+        let arr3=[...aLi];
+        arr3.push(999);
+        console.log(arr3);  // [li, li, li, li, 999]
+
+    </script>
+</body>
+</html>
