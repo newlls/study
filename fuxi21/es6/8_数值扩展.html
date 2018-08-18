@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //  isNaN  是不是 非数字
+       console.log( Number.isNaN(5));  // false
+
+        console.log(Number.parseFloat('12.34'));   // 12.34
+        console.log(Number.parseFloat('12.00'));   //  12
+        console.log(Number.parseFloat('12.dd'));  //  12  不认识的都被丢弃
+
+        console.log(Number.parseInt('12.34'));  //  12
+
+
+        console.log(Math.trunc(23.45));  //23 去除小数部分 返回整数部分
+        console.log(Math.sign(23));  //  1    判断是正数 负数 还是0 相应返回 1 -1 0
+
+
+
+
+    </script>
+</body>
+</html>
