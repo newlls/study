@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        //  rest 运算符  放在最后参数   剩余的参数 []  把元素合成数组   ...与rest相反，是把数组拆分为单个元素
+        function aa() {
+            console.log(arguments);  //  Arguments(5) [1, 2, 3, 4, 5, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+            // console.log(arguments[0]); // 取第一个
+        }
+        aa(1,2,3,4,5);
+
+
+        function bb(a, b, c, ...restArg){
+            console.log(a, b, c, restArg);  //   1 2 3 (2) [4, 5]
+        }
+
+        bb(1,2,3,4,5);
+
+    </script>
+</body>
+</html>
