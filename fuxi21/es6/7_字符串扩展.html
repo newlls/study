@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let a=3;
+        let b=5;
+        console.log(a+"+"+b+"="+(a+b));  // 3+5=8
+        //模板字符串  `${变量}`    支持标签、换行  数学运算
+        console.log(`${a}+${b}=${a+b}`);  // 3+5=8
+        console.log(`jhsjdh   ${a} ksj ${b}kkkk`);   //  jhsjdh 3 ksj 5kkkk
+
+
+       /* let str='abcde';
+        console.log(str.indexOf('c'));// 2  indexOf 返回字符在字符串中的索引
+
+        console.log(str.includes('b'));  //true  字符串是否包含选定词
+
+        console.log(str.startsWith('j')); // false
+
+        function sw(longstr,str) {
+           if(longstr.indexOf(str)==0){
+               return true;
+           } return false;
+        }
+
+       console.log(sw('hello world','hel'));*/  //  true
+
+
+
+        String.prototype.sw = function(str){  //String.prototype 把方法添加到类的原型下
+            if(this.indexOf(str) == 0){
+                return true;
+            }
+            return false;
+        };
+        var str = 'hello world';
+        console.log(str.sw('dfghj'));
+
+
+        String.prototype.ew=function (str) {
+            if(this.lastIndexOf(str)+str.length==this.length){
+                return true;
+            }
+            return false;
+        };
+        let str2='aa df gth gkrkt';
+        console.log(str2.ew('f'));  //  false
+
+
+
+        var str5 = 'abc';
+
+        console.log( str5.padStart(8,'xyz') ); // 从开始位置 以xyz填充 str5 使其长度=8
+        console.log( str5.padEnd(8,'xyz') );  //  从str后面 以xyz填充 str5 使其长度=8
+
+        console.log( str5.repeat(5) );  //  str 重复次数
+
+
+
+
+    </script>
+
+</body>
+</html>
