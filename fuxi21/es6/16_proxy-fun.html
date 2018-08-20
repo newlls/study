@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let fn = function(a){
+            console.log('fn...')
+        };
+        var pro = new Proxy(fn,{
+            apply(){
+                console.log('apply .. 调用');
+                console.log('fn 将要被调用');
+
+                Reflect.apply(...arguments);
+            }
+        });
+        pro(1);
+
+
+        let fn1 = function(){
+            console.log('登录出来...');
+        };
+        var pro1 = new Proxy(fn1,{
+            apply(){
+                if(用户没有登录){
+                    Reflect.apply(...arguments); //调用fn1
+                }
+            }
+        });
+        pro1();
+    </script>
+</body>
+</html>
