@@ -9,7 +9,9 @@
     <script>
         //  rest 运算符  放在最后参数   剩余的参数 []  把元素合成数组   ...与rest相反，是把数组拆分为单个元素
         function aa() {
-            console.log(arguments);  //  Arguments(5) [1, 2, 3, 4, 5, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+            console.log(arguments);  //  Arguments(5) [1, 2, 3, 4, 5,
+                                    // callee: ƒ, Symbol(Symbol.iterator): ƒ]
+                                    // callee 表示递归（调用自己）
             // console.log(arguments[0]); // 取第一个
         }
         aa(1,2,3,4,5);
