@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+        //对象属性的简写
+
+        let name='zs';
+        let obj={
+            name:name, // 可以简写为 name,
+            age:'20'
+        };
+        console.log(obj);  //   {name: "zs", age: "20"}
+
+        let name1='li';
+        let age1='30';
+        let obj1={
+            name1,
+            age1,
+            say(){  // 方法简写
+                console.log('hahah');
+            }
+        };
+        obj1.say();
+
+
+
+        var a='name2';
+        let obj2={
+            [a]:'we' ,   //  取值 []
+        };
+        console.log(obj2);  // {name2: "we"}
+
+
+        console.log( -0===0);   //   true
+        console.log(Object.is(-0,+0));  //  false
+
+        console.log( NaN === NaN);  //  false
+        console.log( Object.is(NaN,NaN) );  //  true
+
+
+        let obj3={
+            name3:'jjj',
+            age3:'21'
+        };
+        let obj4={
+            name4:'kkk',
+            school:'linda'
+        };
+        //  对象合并
+       // $.extend(obj3,obj4);  // 对象合并属性相同 保留后者  name4:'kkk',age3:'21'，school:'linda'
+        console.log({...obj3,...obj4});  //  {name3: "jjj", age3: "21", name4: "kkk", school: "linda"}
+        console.log(Object.assign(obj3,obj4));  // {name3: "jjj", age3: "21", name4: "kkk", school: "linda"}
+
+
+        console.log( 'name4' in obj4 );  //   true  判断属性是否在对象中
+        console.log( Object.keys(obj3) );    //  ["name3", "age3", "name4", "school"]  返回属性
+        console.log( Object.values(obj3) );  // ["jjj", "21", "kkk", "linda"]   返回值
+        console.log( Object.entries(obj4) );  //  [Array(2), Array(2)]  返回属性和值
+
+
+    </script>
+</body>
+</html>

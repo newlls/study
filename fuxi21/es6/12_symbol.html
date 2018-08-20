@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // symbol 基本数据类型 ，独一无二的值   不会有冲突
+        var obj={
+            name:'zs'
+        };
+        let name=Symbol(); // 定义时不能用var 只能用let
+        let aa=Symbol();
+        obj[name]='xx';
+        obj[aa]='yy';
+        console.log(obj); // {name: "zs", Symbol(): "xx", Symbol(): "yy"}
+    </script>
+</body>
+</html>
