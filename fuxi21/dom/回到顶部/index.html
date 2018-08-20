@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+        body{
+            height: 2000px;
+        }
+        #btn{
+            width: 34px;
+            height: 66px;
+            background: url("go-top.jpeg") no-repeat -22px -5px;
+            position: fixed;
+            bottom: 50px;
+            right: 30px;
+        }
+        #btn:hover{
+            background-position: -113px -4px;
+        }
+    </style>
+</head>
+<body>
+
+    <p>ksdkkjds</p>
+    <p>ksdkkjds</p>
+    <p>ksdkkjds</p>
+    <a id="btn" href="javascript:;"></a>
+    <script>
+        var oBtn=document.getElementById('btn');
+        var timer;
+        oBtn.onclick=function () {
+            var scrolltop=document.documentElement.scrollTop;
+             timer=setInterval(function () {
+                 scrolltop=scrolltop-20;
+                 oBtn.style.backgroundPositionX="-200px";
+                 oBtn.style.backgroundPositionY="-2px";
+                 window.scrollTo(0,scrolltop);
+                 if(scrolltop<=0){
+                     clearInterval(timer);
+                     oBtn.style.backgroundPositionX="-22px";
+                     oBtn.style.backgroundPositionY="-5px";
+                 }
+             },16)
+        }
+    </script>
+</body>
+</html>
