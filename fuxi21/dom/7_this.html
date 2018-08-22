@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+
+</head>
+<body>
+
+    1.事件中 this指向当前对象
+    2.定时器中 this指向window
+    3.函数中 this指向window
+    4.对象中  this指向当前对象
+
+    <div id="div1">
+        aa
+    </div>
+
+    <script>
+       /* var oDiv=document.getElementById('div1');
+        oDiv.onclick=function () {
+            setInterval(function () {
+                console.log(this);  // window
+            },1000)
+        };
+
+        function aa() {
+            console.log(this);   //  window
+        }
+        aa();  //相当于 window.aa();
+
+
+        obj={
+            name:'zs',
+            say:function () {
+                console.log(this);   //  obj
+            }
+        };
+        obj.say();*/  // obj 在调用 指向obj
+
+
+        var x=100;
+       var foo = {
+           x: 1,
+           baz: {
+               x: 2,
+               zao: function () {
+                   return this.x
+               }
+           },
+           zao: function () {
+               return this.x
+           }
+       };
+
+        console.log(foo.zao());   // 1
+
+        console.log(foo.baz.zao());  //  2
+
+        var zao=foo.baz.zao;
+        console.log(zao());     //   100
+
+        var bao=foo.baz;
+        console.log(bao.zao());  //  2
+
+    </script>
+
+</body>
+</html>
