@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .usename{
+            height: 100px;
+            width: 100px;
+        }
+        button{
+            width: 100px;
+            height: 50px;
+            float: left; /*除去两按钮之间的空隙*/
+        }
+    </style>
+</head>
+<body>
+    <!--
+       1. 行级元素inline（不可以设置宽高，）：  span   a
+       2. 块级元素block（不与其他元素同行）：  div  h1~h6  p（p标签不能嵌套其他的块级元素
+       3. 行级款元素inline-block（可以设置宽高，也允许其他元素与其共占一行） ：  img  input  button
+
+        转换  display: inline/ block/ inline-block(IE6不支持）
+
+        display  常用属性：none  table   table-cell   flex  box
+
+
+         URL  统一资源定位器
+
+
+
+        显示结果	描述	实体名称	实体编号
+            空格	&nbsp;	&#160;
+        <	小于号	&lt;	&#60;
+        >	大于号	&gt;	&#62;
+
+
+
+
+        1、html的语义化
+        1，有关HTML的语义化，你的理解：html中自带了一些标签，这些标签有特定含义，比如H1-H6代表标题、p代表段落、
+       img代表图片、html5里也推出了一些新的标签：header、footer、nav这些标签都有特定的含义，
+       使用的时候应该尽量按照它的语义来使用
+        好处：1.别人阅读你的代码的时候能够根据标签才出来你的用意，有利于程序员阅读，便于团队开发和维护
+        2.浏览器读取方便
+        3.有利于搜索引擎优化（SEO：Search Engine Optimization）（比如说会根据标签来搜索，可能重点会搜索h1）
+        4、有一些标签默认会有一些样式，如果浏览器禁止了CSS样式还可以达到突出样式的效果，比如h1
+    -->
+
+  <!--  <p>
+        <div>kskk</div>
+    </p>
+
+    <p>
+        <span>kskksdk</span>
+    </p>-->
+
+    <form action="">
+       用户名： <input type="text" class="usename">
+        密码：<input type="password">
+    </form>
+
+    <button>click</button>
+    <button>click</button>
+
+    <!-- 有序列表-->
+    <ol>
+        <li>1</li>
+        <li>2</li>
+    </ol>
+    <!-- 无需列表-->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+    </ul>
+</body>
+</html>
