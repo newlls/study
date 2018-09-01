@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <author></author>
+    <div id="author"></div>
+    <script src="vue.js"></script>
+    <script>
+        var authorExtend=Vue.extend({
+            template:"<p><a :href='authorUrl'>{{authorName}}</a></p>",
+            data:function (){
+                return{
+                    authorName:'jspang',
+                    authorUrl:'http://www.jspang.com',
+                }
+            }
+        });
+
+      new authorExtend().$mount('author');   //  扩展构造器 挂载后生效
+
+      new authorExtend().$mount('#author');  //  挂载到普通标签上
+    </script>
+</body>
+</html>
