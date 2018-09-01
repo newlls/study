@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <div id="demo">{{firstName}}+{{lastName}}={{fulName}}</div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                firstName:"foo",
+                lastName:"bar",
+                //fulName:"foo bar",
+            },
+            /*watch:{   //一个变量影响多个值
+                firstName(val){
+                    this.fulName=val+' '+this.lastName;
+                },
+                lastName(val){
+                    this.fulName=this.firstName+' '+val;
+                }
+            },*/
+
+            computed:{    //多个变量影响一个值
+                fulName(){
+                    return this.firstName+this.lastName;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
