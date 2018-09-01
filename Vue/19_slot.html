@@ -5,6 +5,36 @@
     <title>Title</title>
 </head>
 <body>
+    <div id="app">
+        <change>
+            <a slot="blogUrl">{{list.blogUrl}}</a>
+            <span slot="netName">{{list.netName}}</span>
+            <span slot="skill">{{list.skill}}</span>
+        </change>
+    </div>
+    <template id="tmp">
+        <div>
+            <p>博客地址：<slot name="blogUrl"></slot></p>
+            <p>网名：<slot name="netName"></slot></p>
+            <p>技术类型：<slot name="skill"></slot></p>
+        </div>
+    </template>
+    <script src="vue.js"></script>
+    <script>
+        Vue.component('change',{
+            template:"#tmp",
+        });
+        var app=new Vue({
+            el:'#app',
+            data:{
+                list:{
+                    blogUrl:'http://xxx.xxx.xxx',
+                    netName:'lisi',
+                    skill:'web',
+                }
+            },
 
+        })
+    </script>
 </body>
 </html>
