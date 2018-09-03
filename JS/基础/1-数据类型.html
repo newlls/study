@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+        /*对未初始化和未申明的变量执行typeof 结果都返回undefined     */
+        var message;
+        console.log(typeof message);// undefined
+        console.log(typeof age);  //undefined
+
+        console.log(null==undefined); // true
+
+
+
+        //利用函数Boolean()  可以区分类型为object的为对象（返回true）还是null（返回false）
+        var obj={
+            name:'lisi'
+        };
+        var objB=Boolean(obj);
+        console.log(objB); //true
+        var a=null;
+        var aB=Boolean(a);
+        console.log(aB);  //  false
+
+    </script>
+</body>
+</html>
