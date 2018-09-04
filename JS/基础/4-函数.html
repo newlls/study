@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // 若不想传参，但想获取参数  可以使用arguments（与数组类似）
+        // 如 获取第一个参数arguments[0]
+        // arguments.length 可获知有多少个参数传递给了函数
+        function fn1() {
+            console.log(arguments.length);
+        }
+        fn1('skd',9);  // 2
+        fn1('kdscuisudc');// 1
+
+        // 没有重载 （即不能定义两个相同名的函数） 若定义了两个名相同的函数 ，则只有后定义的有效
+        function fn2(n) {
+            return n+100;
+        }
+        function fn2(n) {
+            return n+10;
+        }
+        console.log(fn2(100)); // 110
+
+
+    </script>
+</body>
+</html>
