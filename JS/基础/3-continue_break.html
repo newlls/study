@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+        // break  continue 立即退出循环
+        // 区别：break退出循环后继续执行循环体后面对的语句，即结束整个循环
+        // 而continue会从循环的顶部继续执行 即结束本次循环，进行下一循环
+        var num=0;
+        for (var i=1;i<10;i++){
+            if (i % 5 == 0){
+                break;  // i=5时， num 还来不及再次递增 循环退出  开始执行console.log(num)
+            }
+             num++;
+        }
+        console.log(num); // 4
+
+       var num1=0;
+        for (var j=1;j<10;j++){
+            if (j % 5 == 0){
+                 continue;//j=5  num1 还来不及再次递增 循环退出
+                        // 从顶部开始（j=6）循环继续执行 直到j=10，自然结束
+            }
+            num1++;
+        }
+        console.log(num1);  //8
+
+
+    </script>
+</body>
+</html>
