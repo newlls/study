@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var num1=2;
+        var num2=20;
+        /*var num3=--num1+num2;
+        var num4=num1+num2;
+        console.log(num3);  // 21  前置递增递减 变量的值都是在语句被求值之前改变
+        console.log(num4);*/  //21 相应的操作使用num1-1后的值
+
+        var num5=num1--+num2;
+        var num6=num1+num2;
+        console.log(num5);  // 22  后置递增递减 变量的值都是在语句被求值之后改变
+                            // 本例中num5已经计算结束  num1才-1
+        console.log(num6); //21 因为在计算了num5之后 num1已经-1了
+
+
+        var a1=10;
+        var a2=2;
+        var b='jdkf'+a1+a2;
+        console.log(b); //  jdkf102  因为每个加法操作都是独立执行的，第一个加法操作将一个字符串与数值相加，
+                        // 结果为字符串，然后与数值相加
+
+        var c='jvjk'+(a1+a2);
+        console.log(c);// jvjk12
+
+
+    </script>
+</body>
+</html>
