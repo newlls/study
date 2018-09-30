@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        console.log(typeof a); // number
+        console.log(typeof (typeof 123)); //string
+        console.log(typeof 'abc'); //string
+        console.log(typeof true);//boolean
+        console.log(typeof undefined); //undefined
+
+        console.log(typeof null);//object
+        console.log(typeof [1,2,3]);//object
+
+        //判断object 是null还是数组
+        var arr=[1,2,3];
+        console.log(arr instanceof Array);  //判断arr是否为Array的实例对象
+        console.log(arr.constructor==Array);//arr.constructor 返回arr的构造函数
+        console.log(Array.isArray(arr));    //IE9以上才支持
+
+    </script>
+</body>
+</html>
