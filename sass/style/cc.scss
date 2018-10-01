@@ -1,0 +1,84 @@
+$color:#000;
+$a:'head';
+body{
+  background: $color;
+}
+.head-logo{
+  width: 10px;
+  background: url("#{$a}.jpg");
+}
+.header{
+  width: 1230px;
+  margin: 0 auto;
+  .logo{
+    width: 100px;
+    height: 100px;
+    float: left;
+    a{
+      text-decoration: none;
+      &:hover{   //伪类需要加 & ,也可以写和a同级
+        color: #00A862;
+      }
+    }
+  }
+  .search{
+
+  }
+}
+@mixin boder($col){
+  border:1px solid $col;
+  box-shadow: 0 0 3px 4px rgba(0,0,0,0.5);  //封装的方法，使用后才会在css中生成
+}
+.aa{
+  width: 200px;
+  height: 200px;
+  @include boder(#000);  //调用boder（）
+}
+.bb{
+  width: 500px;
+  height: 100px;
+  @include boder(#ccc);
+}
+@mixin css3($attr,$val){  //重复使用的代码可以封装
+  -webkit-#{$attr}:$val;
+  -moz-#{$attr}:$val;
+  -o-#{$attr}:$val;
+  -ms-#{$attr}:$val;
+}
+.cc{
+  @include css3(border-radius,20px);
+}
+@mixin arrow($width,$col){  //混合宏
+  border-style: solid;
+  border-width: $width;
+  border-color: $col transparent transparent transparent;
+  width: 0;
+  height:0;
+}
+.dd{
+  @include arrow(10px,green);
+}
+.ff{
+  width: 200px;
+  height:200px;
+}
+.ee{
+  @extend .ff;  //继承
+  background: #00ff00;
+}
+%gg{     //占位符
+  color: #00A862;
+  width: 100px;
+  height: 100px;
+}
+.hh{
+  font-size: 20px;
+  @extend %gg;
+}
+
+@function add($x,$y){     //自定义函数
+  @return $x+$y;
+}
+.j{
+  width: add(3,5px);
+}
