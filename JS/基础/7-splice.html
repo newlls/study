@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //splice始终返回一个数组，数组包含从原始数组中删除的项，若没有删除则返回空数组
+        var arr=['11','22','33','44'];
+        var removed=arr.splice(1,1);  // 删除一项
+        console.log(arr);    //  ["11", "33", "44"]
+        console.log(removed);//  ["22"]
+
+        var arr1=['aa','bb','cc'];
+        var removed1=arr1.splice(1,0,'ss','ff'); // 插入两项
+        console.log(arr1);  //  ["aa", "ss", "ff", "bb", "cc"]
+        console.log(removed1); //[]
+
+        var arr2=['a','b','c'];
+        var removed2=arr2.splice(2,1,'d','f','g'); //删除一项 ，插入三项
+        console.log(arr2);      //  ["a", "b", "d", "f", "g"]
+        console.log(removed2); //  ["c"]
+    </script>
+</body>
+</html>
