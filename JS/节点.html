@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+        <ul id="ul1">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <div id="div1">div1</div>
+        <div id="div2">div2</div>
+        <span>span 22</span>
+    </div>
+    <script>
+        var oBox=document.getElementById('box');
+        var oDiv1=document.getElementById("div1");
+        var oDiv2=document.getElementById("div2");
+
+        /*for(var i=0;i<oBox.childNodes.length;i++){
+            if(oBox.childNodes.item(i).nodeType==1){
+                console.log(oBox.childNodes.item(i));
+            }
+        }*/
+
+       /* console.log(oDiv1.nextElementSibling);/!*下一个元素节点*!/
+        console.log(oDiv1.nextSibling);/!*下一个节点*!/
+        */
+
+     /*  console.log(oDiv1.previousElementSibling);
+       console.log(oDiv1.previousSibling);
+       */
+
+     function text(a) {
+         a=a.nextSibling;
+         do{
+             a=a.nextSibling;
+         }while (a&&a.nodeType!=1);
+         return a;
+     }
+     console.log(text(oDiv1));
+    </script>
+</body>
+</html>
