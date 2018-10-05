@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 50%;
+            height: 0;
+            padding-bottom: 50%;
+        }
+        #div1{
+            background: blue;
+
+        }
+        #div2{
+            background: red;
+        }
+        #div3{
+            background: yellowgreen;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            <div id="div3"></div>
+        </div>
+    </div>
+    <script>
+        var aDiv1=document.getElementById('div1');
+        var aDiv2=document.getElementById('div2');
+        var aDiv3=document.getElementById('div3');
+        /*基于DOM0的事件*/
+       /* aDiv1.onclick=function () {
+            console.log("div1");
+        };
+        aDiv1.onclick=function () {
+            console.log("div1-1");
+        };/!* 对于同一个dom节点而言，只有一个有效，后边注册的同种事件会覆盖之前注册的。
+                因此只输出div1-1；
+            利用这个原理我们可以解除事件，btn5.onclick＝null;其中this就是绑定事件的那个元素*!/
+   */
+
+
+    /*基于DOM1的事件*/
+    /*aDiv1.addEventListener("click",function () {
+        console.log("div1");
+    },false);
+    aDiv1.addEventListener("click",function () {
+        console.log("div1-1");
+    },false);/!*同一个dom节点，支持多个事件，并按添加的顺序执行    但存在IE兼容性问题*!/
+*/
+
+        /*通过addEventListener()添加的事件处理程序只能用removeEventListener()来移除，
+            并且移除时传入的参数必须与添加时传入的参数一样；*/
+        
+       /* aDiv2.addEventListener("click",function () {
+            console.log("123");
+        },false);
+        aDiv2.removeEventListener("click",function () {
+            console.log("123");
+        },false);/!*匿名函数，清除无效*!/*/
+
+       /*function text() {
+           console.log("123");
+       }
+       aDiv2.addEventListener("click",text);
+       aDiv2.removeEventListener("click",text);/!*具名函数，只写函数名，不写（）*!/
+*/
+
+
+       /* aDiv1.addEventListener("click",function () {
+            console.log("div1");
+        },false);
+        aDiv2.addEventListener("click",function () {
+            console.log("div2");
+        },false);
+        aDiv3.addEventListener("click",function () {
+            console.log("div3");
+        },false);/!* false 事件冒泡，由里向外执行  输出 div3  div2  div1 *!/
+*/
+
+        /*aDiv1.addEventListener("click",function () {
+            console.log("div1");
+        },true);
+        aDiv2.addEventListener("click",function () {
+            console.log("div2");
+        },true);
+        aDiv3.addEventListener("click",function () {
+            console.log("div3");
+        },true);/!* true   事件捕获，由外到里执行  输出div1  div2  div3 *!/
+*/
+
+
+        aDiv1.addEventListener("click",function () {
+            console.log("div1");
+        },false);
+        aDiv2.addEventListener("click",function (e) {
+            console.log("div2");
+            e.stopPropagation();
+        },false);
+        aDiv3.addEventListener("click",function () {
+            console.log("div3");
+        },false);
+    </script>
+</body>
+</html>
