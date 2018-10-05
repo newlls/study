@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <input id="content" type="text" placeholder="内容">
+        <input id="dates" type="date">
+        <button id="btn">添加</button>
+        <table id="tab" border="1">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>内容</th>
+                <th>时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody class="tc">
+                <tr>
+                    <td>1</td>
+                    <td>上课</td>
+                    <td>2018-3-5</td>
+                    <td><button class="delbtn">删除</button></td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <script>
+        var oContent=document.getElementById('content');
+        var oDate=document.getElementById('dates');
+        var oBtn=document.getElementById('btn');
+        var oTab=document.getElementById('tab');
+        var oTc=document.getElementsByClassName('tc');
+        var thisHtml="";
+        oBtn.onclick=function () {
+            var thisIndex=document.querySelectorAll("tbody tr").length;
+            var oNewCont=oContent.value;
+            var oNewDate=oDate.value;
+           thisHtml=' <tr>'+' <td>'+thisIndex+'</td>'+' <td>'+oNewCont+'</td>'+' <td>'+oNewDate+'</td>'+' <td><button class="delbtn">删除</button></td>'+' </tr>'
+            oTc.innerHTML+=thisHtml;
+        };
+        oTc.onclick=function (e) {
+            if(e.target.className=='deltab'){
+                e.target.parentElement.parentElement.remove();
+            }
+        }
+
+    </script>
+</body>
+</html>
