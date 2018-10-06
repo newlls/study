@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .ul1 li:nth-child(1){  /*从 1 开始 没有负数*/
+            background: red;
+        }
+        #div1{
+            text-shadow: 10px 10px 2px #f00;
+        }
+
+        .div2{
+            display: flex;
+            height: 200px;
+        }
+        .div3{
+            flex-grow: 1;
+            background: #C2A661;
+            width: 0;  /*弹性盒模型 当子元素有内容时 需要把宽度设为0*/
+        }
+        .div4{
+            flex-grow: 1;
+            background: #00A862;
+            width: 0;
+        }
+    </style>
+</head>
+<body>
+    <ul class="ul1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <div id="div1">div1</div>
+
+    <div class="div2">
+        <div class="div3">ddd33</div>
+        <div class="div4"></div>
+    </div>
+</body>
+</html>
