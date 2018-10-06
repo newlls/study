@@ -7,9 +7,9 @@
 <body>
     <script>
 
-        //call 和apply方法：
+        //call  apply  bind 方法：
         // 1. 传参
-        // 2. 扩充函数赖以运行的作用域 且对象不需要与方法有任何耦合关系
+        // 2. 扩充函数赖以运行的作用域 且对象不需要与方法有任何耦合关系  改变this指向
         window.color='red';
         var o={
             color:'blue'
@@ -21,6 +21,25 @@
         sayColor.call(this); //red
         sayColor.call(window);//red
         sayColor.call(o);//blue
+
+
+        function fn(a,b) {
+            console.log(this);
+            console.log(a);
+            console.log(b);
+        }
+        fn(2,3) ; // Window  2   3
+
+        var obj={
+            name:"zs",
+            age:21
+        };
+        fn.call(obj,2,3);     //{name: "zs", age: 21}v   2  3
+        fn.apply(obj,[2,3]);  //{name: "zs", age: 21}v   2  3
+
+        fn.bind(obj); //没有输出 ，因为bind要调用才执行
+        fn.bind(obj)(2,3); //{name: "zs", age: 21}v   2  3
+
     </script>
 </body>
 </html>
