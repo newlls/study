@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="div1">div111</div>
+    <script>
+        /*
+            事件：事件源 事件处理函数  事件对象   e  || window.event
+            浏览器事件模型
+            事件冒泡：里 => 外
+            事件捕获：外 => 里
+            先捕获后冒泡
+            标准浏览器 ：addEventListener 第三个参数为 false表示冒泡  true表示捕获
+            IE：attachEvent 绑定顺序问题  this指向Window
+
+            阻止事件冒泡：
+            标准浏览器：e.stopPropagation();
+            IE:window.event.cancelBubble = true;
+
+            事件委托，事件代理
+            1. 子元素事件委托给父元素绑定 事件源：e.target  window.event.srcElement
+            2. 后生成元素的事件绑定问题
+
+            call apply bind
+
+
+        */
+       var oDiv=document.getElementById('div1');
+       /*oDiv.onclick=function () {
+           console.log(1);
+       };
+       oDiv.onclick=function () {
+           console.log(2);
+       }*/
+        //  2
+
+        /*oDiv.addEventListener('click',function () {
+            console.log(1);
+        },true);
+        oDiv.addEventListener('click',function () {
+            console.log(2);
+        },true);*/
+
+
+
+        function fn(a,b) {
+            console.log(this);
+            console.log(a);
+            console.log(b);
+        }
+        fn(2,3) ; // Window  2   3
+
+        var obj={
+            name:"zs",
+            age:21
+        };
+        fn.call(obj,2,3);     //{name: "zs", age: 21}v   2  3
+        fn.apply(obj,[2,3]);  //{name: "zs", age: 21}v   2  3
+
+        fn.bind(obj); //没有输出 ，因为bind要调用才执行
+        fn.bind(obj)(2,3); //{name: "zs", age: 21}v   2  3
+    </script>
+</body>
+</html>
