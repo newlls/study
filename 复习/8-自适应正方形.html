@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            background: red;
+            padding-top: 100%; /*百分比相对父元素的宽度*/
+        }
+
+        #div2{
+            background: #00A862;
+        }
+        #div2::after{
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
+
+        #div3{
+            background: yellow;
+            overflow: hidden;
+        }
+        #div3::after{
+            content: '';
+            display: block;
+            margin-top: 100%;  /*相当于子元素  设置margin 父元素margin受影响*/
+        }
+        #div4{
+            background: #6666ff;
+            height: 100vh;
+        }
+
+        #div5{
+            font-size: 20px;
+        }
+        #div6{
+            height: 10em;
+            width: 10em;
+            background: #C2A661;
+        }
+    </style>
+</head>
+<body>
+        <!--
+            单位：px
+             %
+            em : 相对于其父元素的font-size
+            rem ：相对于根元素的font-size
+            vw vh
+            vmax vmin
+        -->
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="div4"></div>
+
+
+    <div id="div5">
+        div5
+        <div id="div6">div6</div>
+    </div>
+</body>
+</html>
