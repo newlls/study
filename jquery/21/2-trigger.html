@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text">
+    <button id="btn">click</button>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        $('input').on('focus',function () {
+            $(this).css({
+                background:'pink'
+            })
+        });
+        $('#btn').on('click',function () {
+            //$('input').trigger('focus');  // 触发事先定义好的方法事件
+            $('input').triggerHandler('focus');  // 只触发function里定义的  其他默认的不会被触发
+        })
+    </script>
+</body>
+</html>
