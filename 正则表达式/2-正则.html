@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+        //定义正则的两种方法
+        var reg = /ab/;  // 只能是常量
+        var reg2 = new RegExp("ab");  // 可以是变量
+
+        var str="123abc";
+        console.log(reg.test(str)); // true  test测试  返回true或false
+        console.log(reg2.test(str)); // true
+        console.log(reg2.exec(str)); // exec返回数组  ["ab", index: 3, input: "123abc", groups: undefined]
+
+    </script>
+</body>
+</html>
