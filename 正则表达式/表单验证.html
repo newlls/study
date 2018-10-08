@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form>
+        <input class="email" type="email" placeholder="请输入邮箱" onkeyup="isEmail(this)">
+        <input class="ur" type="url" placeholder="请输入网址">
+        <input class="num" type="text" placeholder="请输入数字" onkeyup="isNum(this);"/>
+        <button type="button">提交</button>
+    </form>
+    <script>
+        var aEmail=document.getElementsByClassName('email');
+        function isNum(e) {
+               // numb.value = numb.value.replace(/[^\d]/g, "");
+            console.log(e);
+
+        }
+        function isEmail(obj) {
+            let reg=/\@/;
+            if(reg.test(aEmail.value)){
+                return true;
+            }else {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
