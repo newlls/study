@@ -16,6 +16,20 @@
         console.log(reg2.test(str)); // true
         console.log(reg2.exec(str)); // exec返回数组  ["ab", index: 3, input: "123abc", groups: undefined]
 
+
+
+        var str1 = "123ababc";
+        var reg1 = /b{2}/;   //{}表示连续出现的次数
+        console.log(reg1.exec(str1)); // null
+
+        var str3='123aaaann';
+        var reg3=/a{3,4}/;  // 贪心  返回多的
+        console.log(reg3.exec(str3)); // ["aaaa", index: 3, input: "123aaaann", groups: undefined]
+
+        var str4='abcabc';
+        var reg4=/b|c/;
+        console.log(reg4.exec(str4));  //["b", index: 1, input: "abcabc", groups: undefined]
+
     </script>
 </body>
 </html>
