@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border:0;
+            border-collapse:collapse;
+        }
+        th{
+            font:bold 12px/17px Arial;
+            border-bottom:1px solid #000;
+            text-align: left;
+            width: 100px;
+        }
+        td	{
+            font:normal 12px/17px Arial;
+            padding:2px;
+            width:100px;
+        }
+        .parent{
+            background: yellow;
+            cursor: pointer;
+        }
+        .selected{
+            background: red;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr><th>姓名</th><th>性别</th><th>年龄</th></tr>
+        </thead>
+        <tbody>
+            <tr class="parent" ><td colspan="3">菜单1</td></tr>
+            <tr ><td>张山</td><td>男</td><td>浙江宁波</td></tr>
+            <tr ><td>李四</td><td>女</td><td>浙江杭州</td></tr>
+            <tr ><td>李四</td><td>女</td><td>浙江杭州</td></tr>
+
+            <tr class="parent" ><td colspan="3">菜单2</td></tr>
+            <tr><td>王五</td><td>男</td><td>湖南长沙</td></tr>
+            <tr><td>找六</td><td>男</td><td>浙江温州</td></tr>
+
+            <tr class="parent" ><td colspan="3">菜单3</td></tr>
+            <tr><td>Rain</td><td>男</td><td>浙江杭州</td></tr>
+            <tr><td>MAXMAN</td><td>女</td><td>浙江杭州</td></tr>
+        </tbody>
+    </table>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        $('.parent').on('click',function () {
+            //$(this).addClass('selected').nextUntil('.parent').hide(); //不能来回切换
+            $(this).toggleClass('selected').nextUntil('.parent').toggle();
+        })
+    </script>
+</body>
+</html>
