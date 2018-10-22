@@ -12,7 +12,7 @@ function setCookie(key,value,day){
 }
 function getCookie(key){
 
-    var sCookie = document.cookie;//'name=zhangsan; age=20'
+    var sCookie = document.cookie;//'name=zhangsan; age=20'  注意空格
     var arr = sCookie.split('; '); //['name=zhangsan','age=20']
     for(var i=0; i<arr.length; i++){
         var arr1 = arr[i].split('=');   //'name=zhangsan' =>['name','zhangsan']
