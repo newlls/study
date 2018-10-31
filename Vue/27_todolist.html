@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #app{
+            width: 1230px;
+            margin: 0 auto;
+        }
+        ul{
+            list-style: none;
+        }
+        .header{
+            background: #ff0036;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .content{
+
+        }
+        .add{
+            margin-bottom: 20px;
+        }
+        .add-content{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="header">
+            任务计划列表
+        </div>
+        <div class="content">
+            <p class="add">添加列表</p>
+            <input type="text" class="add-content" v-model="msg" v-on:focus="clc()" @keyup.13="handle($event)">
+            <div class="tip" v-show="list.length">
+                <span>{{num}}个任务已添加</span>
+                <span>所有任务</span>
+                <span>已完成任务</span>
+                <span>未完成任务</span>
+            </div>
+            <div class="lis" v-show="!list.length">还没有添加任何任务</div>
+            <ul>
+                <li v-for="item in list">
+                    <input type="checkbox" v-model="item.isCheck">
+                    <span>{{item.title}}</span>
+                    <input type="button" value="删除" @click="del(item)">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                msg: "例如：吃饭睡觉打豆豆   提示 + 回车即可添加任务",
+                isCheck:false,
+                isShow:true,
+                num:0,
+                list:[],
+            },
+            methods:{
+                clc(){
+                    this.msg="";
+                },
+                handle(e){
+                    if (this.msg){
+                        this.list.push({
+                            title:this.msg,
+                            isCheck: false,
+                            isEdit:false,
+                            isShow: true,
+                        });
+                        this.num++;
+                    }
+                    this.msg="";
+                },
+                del(e){
+                    var index=this.list.indexOf(e);
+                    this.list.splice(index,1);
+                    this.num--;
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>
