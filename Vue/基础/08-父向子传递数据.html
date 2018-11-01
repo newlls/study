@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="../vue.js"></script>
+    <script>
+        var Son={
+            template:`
+                <div>
+                    <h1 v-if="xxx">1</h1>
+                    <h1 v-show="xxx">2</h1>
+                    <ul>
+                        <li v-for="stu in ['张三','李四']">{{stu}}</li>
+                    </ul>
+                    <button @click="changeXxx">改变显示</button>
+                    <hr>
+                    单向数据流（Vue -> html）
+                    <input type="text" :value="text"><br>
+                    双向数据流（Vue -> html -> Vue）
+                    <input type="text" v-model="text"><br>
+                    <h1>主要看下面：</h1>
+                    {{text}}
+
+                </div>
+
+            `,
+            data:function () {
+                return{
+                    xxx:true,
+                    text:'hello'
+                }
+            },
+            methods:{
+                changeXxx(){
+                    this.xxx=!this.xxx
+                }
+            },
+        };
+        var App={
+            components: {
+                son:Son
+            },
+            template:`
+                <div>
+                     <son :title="xxx"></son>
+                </div>
+
+            `,
+            data:function () {
+                return{
+                    xxx:'我是xxx数据'
+                }
+            }
+        };
+        var app=new Vue({
+            el:"#app",
+            // data就不在这个组件中写了，这个组件仅作为启动组件
+            // 声明子组件
+            components:{
+                app:App
+            },
+            template:'<app/>'
+        })
+    </script>
+</body>
+</html>
