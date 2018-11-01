@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="../vue.js"></script>
+<script>
+    /*
+        需求：字符串反转  如abc 变为 cba 输出
+        实现：为了互动性更好 ，用input+v-model来获取Vue中的数据
+        输出：{{ 内容 | 使用过滤器输出 }}
+
+
+    */
+    var App={
+        template: `
+            <div>
+
+              <input type="text" v-model="myText">
+
+              {{ myText }}
+
+              <button @click=" stus[0].name='rose' ">改变stus[0].name的属性</button>
+            </div>
+
+          `  ,
+        data:function () {
+            return{
+                myText:'111',
+                stus: [
+                    {name:'lisi'}
+                ]
+            }
+        },
+        watch:{
+          /*  // 监视复杂类型 ，无法监视的原因：监视的是对象的地址，地址没改，该的是同地址属性的值
+            stus:function(){
+                console.log('监视失败');
+            },*/
+
+          stus:{
+              deep:true,
+              handler:function (newV,oldV) {
+                  console.log("监视数据成功")
+              }
+          },
+
+            // key是属于data属性的属性名，value是监事后的行为
+            myText:function (newV,oldV) {
+                console.log(newV,oldV);
+                if (newV === 'haha'){
+                    alert('hehe');
+                }
+            }
+        }
+    };
+
+
+
+    new Vue({
+        el:"#app",
+        components:{
+            app:App
+        },
+        template:'<app/>'
+    })
+
+
+</script>
+</body>
+</html>
