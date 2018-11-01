@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="../vue.js"></script>
+    <script>
+        /*
+            需求：字符串反转  如abc 变为 cba 输出
+            实现：为了互动性更好 ，用input+v-model来获取Vue中的数据
+            输出：{{ 内容 | 使用过滤器输出 }}
+
+
+        */
+        var App={
+          template: `
+            <div>
+
+              <input type="text" v-model="myText">
+
+              {{ myText | reverse('英文版') }}
+            </div>
+
+          `  ,
+            data:function () {
+                return{
+                    myText:''
+                }
+            },
+            filters:{
+              reverse:function (dataStr,lang) { //参数1就是传递的原数据
+                  // return '固定字符串'   // 显示的内容
+
+                  //             变数组      反转       变字符串
+                  //return dataStr.split('').reverse().join('');
+                  return lang+":"+dataStr.split('').reverse().join('');
+              }
+            },
+        };
+
+
+        // 全局过滤器
+        Vue.filter('myreverse',function (data,arg1) {
+            return 'xxx'
+        });
+        new Vue({
+            el:"#app",
+            components:{
+                app:App
+            },
+            template:'<app/>'
+        })
+
+
+    </script>
+</body>
+</html>
