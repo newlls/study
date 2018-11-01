@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="../vue.js"></script>
+    <script>
+        // 头组件
+        var myHeader={
+          template:'<div>我是头部</div>'
+        };
+
+        var myBody={
+            template:'<div>我是中部</div>'
+        };
+        var myFooter={
+            template:`
+            <div>我是低部
+                <button @click="showNum(123)">click</button>
+
+            </div>
+
+            `,
+            methods:{
+                showNum(num){
+                    alert(num)
+                }
+            }
+
+        };
+        // 声明入口组件
+        var App={
+           components:{
+               'my-header':myHeader,
+               'my-body':myBody,
+               'my-footer':myFooter
+           },
+          template: `
+          <div>
+            <my-header></my-header>
+            <my-body></my-body>
+            <my-footer></my-footer>
+          </div>
+          `
+        };
+        var app=new Vue({
+            el:"#app",
+            components:{ //声明要用的组件们
+                //key是组件名，value是组件对象
+                app:App
+            },
+            template:'<app/>',// 入口组件
+        });
+
+    </script>
+</body>
+</html>
