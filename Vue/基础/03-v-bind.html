@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="../vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:'#app',
+            template:`
+
+            <div>
+            <input type="text" v-bind:value="myValue" :file=" 'xxx' ">
+                file 自定义属性
+                若绑定的是变量，必须用 ''
+
+                <hr>
+                <button @click=" myValue='hehe' ">点我改变myValue值</button>
+            </div>
+
+            `,
+            data:function () {
+                return{
+                    myValue:'hahaha',
+                }
+            }
+        })
+    </script>
+</body>
+</html>
