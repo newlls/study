@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="../vue.js"></script>
+<script>
+    /*
+        需求：字符串反转  如abc 变为 cba 输出
+        实现：为了互动性更好 ，用input+v-model来获取Vue中的数据
+        输出：{{ 内容 | 使用过滤器输出 }}
+
+
+    */
+    var App= {
+        template: `
+            <div>
+
+              <input type="text" v-model="n1">
+              +<input type="text" v-model="n2">
+               *<input type="text" v-model="rate">
+               ={{result}}
+            </div>
+
+          `,
+        data:function () {
+            return {
+                n1:1,
+                n2:2,
+                rate:2
+            }
+        },
+        computed:{
+            //监视对象，写在了函数内部
+            // 凡是函数内部有this.相关属性，改变都会触发当前函数
+            result:function () {
+                return ( (this.n1-0) + (this.n2-0) ) * this.rate;
+            }
+        }
+    };
+
+    new Vue({
+        el:"#app",
+        components:{
+            app:App
+        },
+        template:'<app/>'
+    })
+
+
+</script>
+</body>
+</html>
