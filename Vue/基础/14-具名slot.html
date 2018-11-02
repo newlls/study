@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="../vue.js"></script>
+<script>
+    var MySlot={
+        template:`
+
+              <li>
+              第一个
+                <slot name="one"></slot>
+                <hr>
+                第二个
+                <slot name="two"></slot>
+              </li>
+            `
+    };
+    Vue.component('my-slot',MySlot);
+
+    var App={
+        template: `
+                <div>
+                    <my-slot>
+
+                        <h1 slot="two">11111</h1>
+                        <h1 slot="one">22222</h1>
+                    </my-slot>
+                </div>
+
+            `
+    };
+
+    new Vue({
+        el:"#app",
+        components:{
+            app:App
+        },
+        template:'<app/>'
+    })
+
+
+</script>
+</body>
+</html>
