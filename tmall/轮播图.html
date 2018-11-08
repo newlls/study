@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            position: relative;
+            height: 500px;
+        }
+        .slide-panner{
+            height: 500px;
+            width: 100%;
+            position: absolute;
+            opacity: 0;
+            transition: all 1s ease;
+        }
+        .slide-panner div{
+            margin:0 auto;
+            width: 1230px;
+        }
+        .sp-1{
+            background: rgb(229,233,236);
+        }
+        .sp-2{
+            background: rgb(232, 232, 232);
+        }
+        .sp-3{
+            background: rgb(240,238,238);
+        }
+        .sp-4{
+            background: rgb(232, 232,232);
+        }
+        .active{
+            z-index: 2;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="slide-panner sp-1 active">
+            <div>
+                <img src="image/slide1.jpg" alt="">
+            </div>
+        </div>
+        <div class="slide-panner sp-2">
+            <div>
+                <img src="https://img.alicdn.com/simba/img/TB1fN3WA7CWBuNjy0FaSutUlXXa.jpg" alt="">
+            </div>
+        </div>
+        <div class="slide-panner sp-3 active">
+            <div>
+                <img src="image/slide4.jpg" alt="">
+            </div>
+        </div>
+        <div class="slide-panner sp-4">
+            <div>
+                 <img src="https://img.alicdn.com/simba/img/TB114X1gBjTBKNjSZFuSuv0HFXa.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var aSp=document.querySelectorAll('.slide-panner');
+        var index=0;
+        setInterval(function () {
+            aSp[index].classList.remove("active");
+            if(index==2){
+                index=-1;
+            }
+            aSp[++index].classList.add("active");
+        },1000)
+    </script>
+</body>
+</html>
