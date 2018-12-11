@@ -34,11 +34,11 @@
             name:"zs",
             age:21
         };
-        fn.call(obj,2,3);     //{name: "zs", age: 21}v   2  3
-        fn.apply(obj,[2,3]);  //{name: "zs", age: 21}v   2  3
+        fn.call(obj,2,3);     //{name: "zs", age: lianxi}v   2  3
+        fn.apply(obj,[2,3]);  //{name: "zs", age: lianxi}v   2  3
 
         fn.bind(obj); //没有输出 ，因为bind要调用才执行
-        fn.bind(obj)(2,3); //{name: "zs", age: 21}v   2  3
+        fn.bind(obj)(2,3); //{name: "zs", age: lianxi}v   2  3
 
     </script>
 </body>

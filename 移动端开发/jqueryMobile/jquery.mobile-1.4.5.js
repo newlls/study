@@ -1542,7 +1542,7 @@ $.mobile.widget = $.Widget;
 
 
 /*!
- * jQuery hashchange event - v1.3 - 7/21/2010
+ * jQuery hashchange event - v1.3 - 7/lianxi/2010
  * http://benalman.com/projects/jquery-hashchange-plugin/
  * 
  * Copyright (c) 2010 "Cowboy" Ben Alman
@@ -1552,7 +1552,7 @@ $.mobile.widget = $.Widget;
 
 // Script: jQuery hashchange event
 //
-// *Version: 1.3, Last updated: 7/21/2010*
+// *Version: 1.3, Last updated: 7/lianxi/2010*
 // 
 // Project Home - http://benalman.com/projects/jquery-hashchange-plugin/
 // GitHub       - http://github.com/cowboy/jquery-hashchange/
@@ -1602,7 +1602,7 @@ $.mobile.widget = $.Widget;
 // 
 // About: Release History
 // 
-// 1.3   - (7/21/2010) Reorganized IE6/7 Iframe code to make it more
+// 1.3   - (7/lianxi/2010) Reorganized IE6/7 Iframe code to make it more
 //         "removable" for mobile-only development. Added IE6/7 document.title
 //         support. Attempted to make Iframe as hidden as possible by using
 //         techniques from http://www.paciellogroup.com/blog/?p=604. Added 
@@ -1619,7 +1619,7 @@ $.mobile.widget = $.Widget;
 //         which prevents the page from scrolling when the event is first bound.
 //         Event can also now be bound before DOM ready, but it won't be usable
 //         before then in IE6/7.
-// 1.1   - (1/21/2010) Incorporated document.documentMode test to fix IE8 bug
+// 1.1   - (1/lianxi/2010) Incorporated document.documentMode test to fix IE8 bug
 //         where browser version is incorrectly reported as 8.0, despite
 //         inclusion of the X-UA-Compatible IE=EmulateIE7 meta tag.
 // 1.0   - (1/9/2010) Initial Release. Broke out the jQuery BBQ event.special
