@@ -35,10 +35,17 @@
         };*/
 
         oBox.onclick=function () {
-            setInterval(() =>{   // 箭头函数this 指向定义时的作用域
+            setInterval(() =>{   // 箭头函数本身没有this  为当前的作用域this
                 console.log(this);
             },1000);  //<div id="box">box</div>
+        };
+
+
+        var a='10';
+        function a() {
+            console.log(this.a);
         }
+        a();
     </script>
 </body>
 </html>

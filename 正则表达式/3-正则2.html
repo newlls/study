@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var reg=/^b|c.+/; // 表示以b开头或者包含c 并且c后面有除了/n 之外的1个或多个字符
+        var str='cainiao';
+        console.log(reg.exec(str));  // ["cainiao", index: 0, input: "cainiao", groups: undefined]
+        var str0='bcainiao';
+        console.log(reg.exec(str0)); // ["b", index: 0, input: "bcainiao", groups: undefined]
+
+
+
+    </script>
+</body>
+</html>

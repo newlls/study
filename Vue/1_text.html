@@ -10,11 +10,11 @@
     <div id="app">
         {{msg}}
     </div>
-
+    {{msg}}  <!--无效-->
     <script src="vue.js"></script>
     <script>
         let vueText=new Vue({
-            el:"#app",
+            el:"#app",//挂载点 限定范围
             data:{
                 msg:"hello"
             }

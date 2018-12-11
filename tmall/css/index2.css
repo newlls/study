@@ -89,14 +89,14 @@
     position: relative;
 }
 .slide-item{
-    left:0px;
-    top:0px;
+    left:0;
+    top:0;
     width: 100%;
     z-index:-1;
     position: absolute;
 }
 .slide-item1{
-    background: #EEE4FF;
+    background: #e8e8e8;
 }
 .slide-item2{
     background: #fee9ec;
@@ -114,6 +114,9 @@
     height: 500px;
     display: block;
 }
+.slide-box .active{
+    z-index: 1;
+}
 /*轮播图 end*/
 
 /*category start*/
@@ -122,6 +125,7 @@
     width:200px;
     top:-36px;
     height: 500px;
+    z-index: 2;
 }
 .category-title{
     height:36px;
@@ -159,11 +163,27 @@
 
 /*brand start*/
 .tmall-content{
-    background: #cccccc;
+    background: #e5e5e5;
     padding-top: 32px;
+    font-family: "Microsoft YaHei",SimSun,'\5b8b\4f53',sans-serif;
 }
 .brand-item{
+    height: 370px;
+    float: left;
+}
+.brand-item1{
+    margin-right: 13px;
     width: 234px;
+    display: inline-block;
+}
+.brand-item2{
+    margin-right: 13px;
+}
+.brand-item2,.brand-item3{
+    width: 485px;
+}
+.brand-item .b-img{
+    width: 100%;
 }
 .brand-item h2{
     background: #ffffff;
@@ -181,8 +201,8 @@
     font-size: 14px;
     font-weight: bold;
 }
-.b-img{
-    width: 100%;
+.brand-item1 .b-img{
+    width:234px ;
 }
 .b-img:hover{
     opacity: 0.7;
@@ -192,7 +212,13 @@
     margin-right: 13px;
     float:right;
 }
-.brand-item2{
-    float: left;
+.b-more .icon-gengduo{
+    font-size: 20px;
 }
+.b-more>span{
+    font-size: 16px;
+    color: #666;
+
+}
+
 /*brand end*/

@@ -16,9 +16,14 @@ a{
     width: 1230px;
     margin: 0 auto;
 }
+.clear-fix::after{
+    content: '';
+    clear: both;
+    display: block;
+}
 /*nav开始*/
     .nav{
-        background: #cccccc;
+        background: #e5e5e5;
         height:33px;
         border-bottom: 1px solid #e5e5e5;
     }

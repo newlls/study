@@ -8,13 +8,13 @@
 
     <div id="app">
        <button @click="add">add</button>
-        <button @click="destroy">destroy</button>
         {{num}}
     </div>
+    <button onclick="a.$destroy()">destroy</button>
     <script src="vue.js"></script>
     <script>
 
-        new Vue({
+        var a=new Vue({
             el:"#app",
             data:{
                 num:0,
@@ -23,35 +23,39 @@
                 add(){
                     this.num++;
                 },
-                destroy(){
-                    this.$destroy();
-                }
             },
 
-            beforeCreate(){
-                console.log('beforeCreate');
+            beforeCreate:function(){
+                console.log('1-beforeCreate 初始化之后');
             },
-            created(){
-                console.log('created');
+            created:function(){
+                console.log('2-created 创建完成');
             },
-            beforeMount(){
-                console.log('beforeMount');
+            beforeMount:function(){
+                console.log('3-beforeMount 挂载之前');
             },
-            mounted() {
-                console.log('mounted');
+            mounted:function(){
+                console.log('4-mounted 被创建(被挂载之后)');
             },
-            beforeUpdate () {
-                console.log('beforeUpdate');
+            beforeUpdate:function(){
+                console.log('5-beforeUpdate 数据更新前');
             },
-            updated() {
-                console.log('updated');
+            updated:function(){
+                console.log('6-updated 被更新后');
             },
-            beforeDestroy() {
-                console.log('beforeDestroy');
+            activated:function(){
+                console.log('7-activated');
             },
-            destroyed() {
-                console.log('destroyed');
+            deactivated:function(){
+                console.log('8-deactivated');
             },
+            beforeDestroy:function(){
+                console.log('9-beforeDestroy 销毁之前');
+            },
+            destroyed:function(){
+                console.log('10-destroyed 销毁之后')
+            }
+
         })
     </script>
 </body>

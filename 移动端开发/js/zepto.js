@@ -195,7 +195,7 @@
     else if (typeof selector == 'string') {
       selector = selector.trim()
       // If it's a html fragment, create nodes from it
-      // Note: In both Chrome 21 and Firefox 15, DOM error 12
+      // Note: In both Chrome fuxi21 and Firefox 15, DOM error 12
       // is thrown if the fragment doesn't begin with <
       if (selector[0] == '<' && fragmentRE.test(selector))
         dom = zepto.fragment(selector, RegExp.$1, context), selector = null

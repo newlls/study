@@ -60,14 +60,14 @@ define(['jquery'],function ($) {
             changeImg(_this.iNow);
         });
 
-        //自动轮播
+        // 自动轮播
         function start() {
             _this.timer=setInterval(function () {
                 _this.next.trigger('click');
             },1000);
         }
         start();
-        //划入停止  移出轮播
+        // 划入停止 移出轮播
         this.container.hover(function () {
             clearInterval(_this.timer);
         },function () {

@@ -14,10 +14,55 @@
 
 
 
-      let mo=new WeakMap();//只接受对象类型
+      /*let mo=new WeakMap();//只接受对象类型
       let obj={
           name:"xiaoming"
+      }*/
+
+
+
+      /*let a=[1,2,3,4,5,6,7,8];
+      let b=a.map(function (val,index,arr) {//map不能终止循环，即不能使用break
+                                            // 返回所有的值 ，不符合条件为undefined
+          if(val<5){
+              return val;//Array(8)0: 11: 22: 33: 44: undefined5:
+                        // undefined6: undefined7: undefinedlength: 8__proto__: Array(0)
+          }
+      });
+
+      console.log(b);*/
+
+
+     /* var name='zs';
+      let obj={
+          name:'lisi',
+      };
+      function foo() {
+          console.log(this.name);
       }
+      //foo();//zs
+
+       // foo.call(obj);//lisi，参数都是对象   立即执行
+      //foo.apply(obj);//lisi,第一个参数为对象，第二个参数为数组  立即执行
+
+        */
+
+
+     /*let a=1,b=2;
+     let foo=(a,b)=>a+b;//单行   不复用函数   因为箭头函数没有构造函数
+      console.log(foo(1,2))*/
+
+
+    /*function foo() {
+        console.log(arguments);//尽量不要在函数体中使用arguments
+    }
+    foo(1,2,3);*/       //Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+
+
+        function foo1(...arg) {
+            console.log(arg);
+        }
+        foo1();
 
 
     </script>
