@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //$()参数
+        // 选择器  标签  原生对象  函数（文档就绪函数）$(function(){})
+        function $(selector) {
+            return new Jquery(selector)
+        }
+        function Jquery(sel) {
+            this.ele = [];
+            if(typeof sel == 'string'){
+                if(sel.charAt(0) == '#'){
+                    this.ele.push (document.getElementById(sel.substring(1)) );
+                }else if(sel.charAt(0) =='.'){
+                    this.ele = document.getElementsByClassName(sel.substring(1))
+                }
+            }
+            if(typeof sel == 'function'){
+                document.addEventListener('DOMContentLoad',sel,false)
+            }
+        }
+        Jquery.prototype.css = function (attr,val) {
+            if(typeof attr == 'string' && typeof val == 'string'){
+                for(var i=0;i<this.ele.length;i++){
+                    this.ele[i].style[attr] = val;
+                }
+            }else if(typeof attr == 'object' && !val){
+                for(var i=0;i<this.ele.length;i++){
+                    for(let key in attr){
+                        this.ele[i].style[key] == attr[key];
+                    }
+                }
+            }
+        }
+        Jquery.prototype.on = function (type,fn) {
+            for(var i=0;i<this.ele.length;i++){
+                this.ele[i].addEventListener(type,fn,false);
+            }return this; // 链式操作
+        }
+    </script>
+</body>
+</html>
